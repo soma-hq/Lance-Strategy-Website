@@ -1,0 +1,195 @@
+/* process.css — Zigzag step layout with dashed arrow connectors */
+
+.process-header {
+	text-align: center;
+	margin-bottom: 60px;
+}
+
+.process-header .section-lead {
+	margin: 12px auto 0;
+	text-align: center;
+}
+
+/* Zigzag container */
+.process-zigzag {
+	max-width: 860px;
+	margin: 0 auto;
+}
+
+/* Step row — left or right aligned */
+.pz-row {
+	display: flex;
+}
+
+.pz-row.pz-left {
+	justify-content: flex-start;
+}
+
+.pz-row.pz-right {
+	justify-content: flex-end;
+}
+
+/* Step card */
+.pz-step {
+	display: flex;
+	align-items: flex-start;
+	gap: 20px;
+	max-width: 560px;
+	width: 100%;
+	padding: 28px 30px;
+	background: rgba(255, 255, 255, 0.03);
+	border: 1px solid var(--border);
+	border-radius: 20px;
+	transition:
+		border-color 0.3s,
+		background 0.3s,
+		box-shadow 0.3s;
+}
+
+.pz-step:hover {
+	background: rgba(255, 255, 255, 0.055);
+	border-color: rgba(201, 168, 76, 0.2);
+	box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Right-aligned steps flip num to the right */
+.pz-row.pz-right .pz-step {
+	flex-direction: row-reverse;
+}
+
+/* Numbered circle */
+.pz-num {
+	width: 52px;
+	height: 52px;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 18px;
+	font-weight: 900;
+	color: #0a0c10;
+	flex-shrink: 0;
+	box-shadow: var(--shadow-gold);
+	transition: transform var(--t);
+}
+
+.pz-step:hover .pz-num {
+	transform: scale(1.1);
+}
+
+/* Number color variants */
+.pn1 {
+	background: var(--gold);
+}
+.pn2 {
+	background: var(--blue-bright);
+	box-shadow: var(--shadow-blue);
+}
+.pn3 {
+	background: var(--fire);
+	box-shadow: 0 4px 20px rgba(249, 115, 22, 0.4);
+}
+.pn4 {
+	background: #22c55e;
+	box-shadow: 0 4px 20px rgba(34, 197, 94, 0.4);
+}
+
+.pz-content {
+	flex: 1;
+}
+
+.pz-title {
+	font-size: 15px;
+	font-weight: 800;
+	color: var(--text);
+	margin-bottom: 8px;
+	line-height: 1.3;
+}
+
+.pz-desc {
+	font-size: 13px;
+	color: var(--text-muted);
+	line-height: 1.65;
+	margin: 0;
+}
+
+/* Arrow connectors */
+.pz-connector {
+	position: relative;
+	height: 54px;
+	width: 68%;
+}
+
+/* Left-to-right arrow (left step → right step) */
+.pz-connector.pz-lr {
+	margin-right: auto;
+	border-right: 2px dashed rgba(201, 168, 76, 0.38);
+	border-bottom: 2px dashed rgba(201, 168, 76, 0.38);
+	border-radius: 0 0 14px 0;
+}
+
+/* Right-to-left arrow (right step → left step) */
+.pz-connector.pz-rl {
+	margin-left: auto;
+	border-left: 2px dashed rgba(201, 168, 76, 0.38);
+	border-bottom: 2px dashed rgba(201, 168, 76, 0.38);
+	border-radius: 0 0 0 14px;
+}
+
+/* Arrowhead triangles */
+.pz-connector.pz-lr::after {
+	content: "";
+	position: absolute;
+	right: -5px;
+	bottom: -5px;
+	width: 0;
+	height: 0;
+	border-top: 5px solid transparent;
+	border-bottom: 5px solid transparent;
+	border-left: 8px solid rgba(201, 168, 76, 0.55);
+}
+
+.pz-connector.pz-rl::after {
+	content: "";
+	position: absolute;
+	left: -5px;
+	bottom: -5px;
+	width: 0;
+	height: 0;
+	border-top: 5px solid transparent;
+	border-bottom: 5px solid transparent;
+	border-right: 8px solid rgba(201, 168, 76, 0.55);
+}
+
+/* Responsive — linear stack on mobile */
+@media (max-width: 640px) {
+	.pz-row {
+		justify-content: center !important;
+	}
+
+	.pz-step {
+		max-width: 100%;
+		flex-direction: row !important;
+	}
+
+	.pz-connector {
+		width: 2px;
+		height: 40px;
+		margin: 0 auto;
+		border: none !important;
+		border-radius: 0 !important;
+		border-left: 2px dashed rgba(201, 168, 76, 0.38) !important;
+	}
+
+	.pz-connector::after {
+		content: "";
+		position: absolute;
+		left: -5px;
+		bottom: -5px;
+		width: 0;
+		height: 0;
+		border-left: 5px solid transparent;
+		border-right: 5px solid transparent;
+		border-top: 8px solid rgba(201, 168, 76, 0.55);
+	}
+}

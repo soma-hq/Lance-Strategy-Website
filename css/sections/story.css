@@ -1,0 +1,233 @@
+/**
+ * story.css
+ * About / origin story section with CSS acrylic box visual,
+ * floating badges, text content, and value list.
+ */
+
+/* Two-column grid */
+.story-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 80px;
+	align-items: center;
+}
+
+/* Visual panel */
+.story-visual {
+	position: relative;
+	height: 460px;
+	border-radius: 24px;
+	overflow: hidden;
+	border: 1px solid var(--border);
+	box-shadow: var(--shadow-card);
+}
+
+.story-visual-bg {
+	position: absolute;
+	inset: 0;
+	background: radial-gradient(
+		ellipse 80% 80% at 50% 80%,
+		rgba(201, 168, 76, 0.1) 0%,
+		rgba(37, 99, 235, 0.05) 50%,
+		transparent 80%
+	);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* CSS acrylic box illustration */
+.acryl-wrap {
+	position: relative;
+	width: 180px;
+	height: 180px;
+}
+
+.acryl-front {
+	position: absolute;
+	bottom: 0;
+	left: 16px;
+	width: 148px;
+	height: 148px;
+	border: 1.5px solid rgba(255, 255, 255, 0.22);
+	border-radius: 12px;
+	background: rgba(180, 210, 255, 0.05);
+	backdrop-filter: blur(3px);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.acryl-top {
+	position: absolute;
+	bottom: 148px;
+	left: 16px;
+	width: 148px;
+	height: 36px;
+	border: 1.5px solid rgba(255, 255, 255, 0.12);
+	border-radius: 12px 12px 0 0;
+	background: rgba(180, 210, 255, 0.03);
+	transform: perspective(500px) rotateX(-40deg);
+	transform-origin: bottom center;
+}
+
+.acryl-right {
+	position: absolute;
+	bottom: 0;
+	right: 2px;
+	width: 36px;
+	height: 148px;
+	border: 1.5px solid rgba(255, 255, 255, 0.08);
+	border-radius: 0 12px 12px 0;
+	background: rgba(150, 190, 255, 0.03);
+	transform: perspective(500px) rotateY(-38deg);
+	transform-origin: left center;
+}
+
+.acryl-shine {
+	position: absolute;
+	top: 16px;
+	left: 26px;
+	width: 52px;
+	height: 2.5px;
+	background: rgba(255, 255, 255, 0.3);
+	border-radius: 99px;
+	transform: rotate(-20deg);
+	filter: blur(1px);
+}
+
+/* Pulsing card inside acrylic box */
+.acryl-card {
+	font-size: 50px;
+	animation: cardPulse 3.5s ease-in-out infinite alternate;
+}
+
+/* Floating info badge (top-right) */
+.story-badge {
+	position: absolute;
+	top: 26px;
+	right: 22px;
+	background: rgba(8, 12, 20, 0.85);
+	border: 1px solid var(--border-gold);
+	border-radius: 12px;
+	padding: 11px 15px;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	backdrop-filter: blur(8px);
+	box-shadow: var(--shadow-card);
+	animation: floatA 4s ease-in-out infinite alternate;
+}
+
+/* Floating info badge (bottom-left) */
+.story-badge2 {
+	position: absolute;
+	bottom: 26px;
+	left: 22px;
+	background: rgba(8, 12, 20, 0.85);
+	border: 1px solid var(--border);
+	border-radius: 12px;
+	padding: 11px 15px;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	backdrop-filter: blur(8px);
+	box-shadow: var(--shadow-card);
+	animation: floatB 4s ease-in-out infinite alternate;
+}
+
+@keyframes floatA {
+	from {
+		transform: translateY(0);
+	}
+	to {
+		transform: translateY(-8px);
+	}
+}
+
+@keyframes floatB {
+	from {
+		transform: translateY(0);
+	}
+	to {
+		transform: translateY(8px);
+	}
+}
+
+/* Badge icon and text */
+.sb-icon {
+	font-size: 20px;
+}
+.sb-title {
+	font-size: 12px;
+	font-weight: 700;
+	color: var(--text);
+}
+.sb-sub {
+	font-size: 11px;
+	color: var(--text-muted);
+}
+
+/* Text column */
+.story-text .section-title {
+	margin-bottom: 18px;
+}
+
+.story-text p {
+	font-size: 15px;
+	color: var(--text-muted);
+	line-height: 1.78;
+	margin-bottom: 14px;
+}
+
+.story-text p strong {
+	color: var(--text);
+	font-weight: 600;
+}
+
+/* Values list */
+.story-values {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	margin-top: 26px;
+}
+
+.story-value {
+	display: flex;
+	align-items: flex-start;
+	gap: 14px;
+	padding: 15px 17px;
+	background: rgba(255, 255, 255, 0.03);
+	border: 1px solid var(--border);
+	border-radius: 12px;
+	transition: all var(--t);
+	cursor: default;
+}
+
+.story-value:hover {
+	background: rgba(255, 255, 255, 0.055);
+	border-color: var(--border-gold);
+	transform: translateX(5px);
+}
+
+.sv-dot {
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	flex-shrink: 0;
+	margin-top: 5px;
+}
+
+.sv-title {
+	font-size: 14px;
+	font-weight: 700;
+	color: var(--text);
+	margin-bottom: 2px;
+}
+
+.sv-desc {
+	font-size: 13px;
+	color: var(--text-muted);
+	line-height: 1.55;
+}

@@ -1,0 +1,67 @@
+/**
+ * why.css
+ * "Why choose us" section: 6 glass cards in a 3-column grid
+ * with numbered watermarks, icons, and descriptions.
+ */
+
+/* Section header centering */
+.why-header {
+	text-align: center;
+	margin-bottom: 60px;
+}
+
+.why-header .section-lead {
+	margin: 14px auto 0;
+	text-align: center;
+}
+
+/* 3-column card grid */
+.why-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 18px;
+}
+
+/* Individual card */
+.why-card {
+	padding: 32px 26px;
+	border-radius: 20px;
+	cursor: default;
+	position: relative;
+	overflow: hidden;
+}
+
+/* Large watermark number */
+.why-card-num {
+	position: absolute;
+	top: 20px;
+	right: 22px;
+	font-size: 52px;
+	font-weight: 900;
+	color: rgba(255, 255, 255, 0.03);
+	letter-spacing: -0.04em;
+	line-height: 1;
+	pointer-events: none;
+}
+
+.why-icon {
+	font-size: 34px;
+	margin-bottom: 18px;
+	display: block;
+}
+
+.why-title {
+	font-size: 16px;
+	font-weight: 700;
+	color: var(--text);
+	margin-bottom: 9px;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.why-desc {
+	font-size: 13.5px;
+	color: var(--text-muted);
+	line-height: 1.7;
+}

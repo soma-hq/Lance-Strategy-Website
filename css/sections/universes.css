@@ -1,0 +1,67 @@
+/**
+ * universes.css
+ * Horizontal auto-scrolling universe strip showing supported TCG/collectible brands.
+ */
+
+/* Section padding override */
+.universes-section {
+	padding: 80px 0;
+}
+
+/* Header centering */
+.univ-header {
+	text-align: center;
+	margin-bottom: 44px;
+	padding: 0 48px;
+}
+
+/* Track wrapper with edge fade masks */
+.univ-track-wrap {
+	overflow: hidden;
+	position: relative;
+}
+
+.univ-track-wrap::before,
+.univ-track-wrap::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 120px;
+	z-index: 10;
+	pointer-events: none;
+}
+
+/* Left fade */
+.univ-track-wrap::before {
+	left: 0;
+	background: linear-gradient(90deg, var(--ink), transparent);
+}
+
+/* Right fade */
+.univ-track-wrap::after {
+	right: 0;
+	background: linear-gradient(-90deg, var(--ink), transparent);
+}
+
+/* Scrolling track */
+.univ-track {
+	display: flex;
+	gap: 14px;
+	width: max-content;
+	padding: 8px 60px;
+	animation: univScroll 30s linear infinite;
+}
+
+.univ-track:hover {
+	animation-play-state: paused;
+}
+
+@keyframes univScroll {
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(-50%);
+	}
+}

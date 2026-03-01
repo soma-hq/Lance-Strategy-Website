@@ -1,0 +1,98 @@
+/**
+ * testimonials.css
+ * Customer review cards in a 3-column grid with quote marks,
+ * star ratings, and author info with colored dot avatars.
+ */
+
+/* Section header centering */
+.testi-header {
+	text-align: center;
+	margin-bottom: 52px;
+}
+
+.testi-header .section-lead {
+	margin: 12px auto 0;
+	text-align: center;
+}
+
+/* 3-column reviews grid */
+.testi-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 18px;
+}
+
+/* Individual testimonial card */
+.testi-card {
+	padding: 30px 26px;
+	border-radius: 20px;
+	position: relative;
+}
+
+/* Large decorative quotation mark */
+.testi-qmark {
+	position: absolute;
+	top: 18px;
+	right: 22px;
+	font-size: 54px;
+	font-weight: 900;
+	color: rgba(255, 255, 255, 0.035);
+	font-family: Georgia, serif;
+	line-height: 1;
+	pointer-events: none;
+}
+
+/* Star rating row */
+.testi-stars {
+	color: var(--gold);
+	font-size: 13px;
+	letter-spacing: 2px;
+	margin-bottom: 14px;
+}
+
+/* Review text */
+.testi-text {
+	font-size: 14px;
+	color: var(--text-muted);
+	line-height: 1.73;
+	font-style: italic;
+	margin-bottom: 22px;
+}
+
+/* Author info row */
+.testi-author {
+	display: flex;
+	align-items: center;
+	gap: 11px;
+}
+
+/* Colored dot avatar */
+.testi-dot {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 2px solid var(--border);
+	flex-shrink: 0;
+	position: relative;
+	overflow: hidden;
+}
+
+.testi-dot-inner {
+	width: 14px;
+	height: 14px;
+	border-radius: 50%;
+}
+
+.ta-name {
+	font-size: 13px;
+	font-weight: 700;
+	color: var(--text);
+}
+
+.ta-handle {
+	font-size: 11px;
+	color: var(--text-dim);
+}

@@ -1,0 +1,267 @@
+/**
+ * products-page.css
+ * Page-specific styles for the full product catalogue page (products.html).
+ * Relies on base.css, cards.css, products.css, and buttons.css being loaded first.
+ */
+
+/* ─── Active nav link ──────────────────────────────────── */
+
+.nav-link-active {
+	color: var(--gold-light) !important;
+	font-weight: 700;
+	pointer-events: none;
+}
+
+/* ─── Page Hero Banner ─────────────────────────────────── */
+
+.products-page-hero {
+	min-height: 360px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	position: relative;
+	padding: 110px 24px 64px;
+	overflow: hidden;
+}
+
+/* Subtle radial glow behind the hero content */
+.products-page-hero::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: radial-gradient(
+		ellipse 70% 130% at 50% 100%,
+		rgba(201, 168, 76, 0.08) 0%,
+		rgba(37, 99, 235, 0.04) 55%,
+		transparent 75%
+	);
+	pointer-events: none;
+}
+
+/* Decorative top-right glow */
+.products-page-hero::after {
+	content: "";
+	position: absolute;
+	top: -60px;
+	right: -80px;
+	width: 380px;
+	height: 380px;
+	border-radius: 50%;
+	background: radial-gradient(
+		circle,
+		rgba(201, 168, 76, 0.055) 0%,
+		transparent 65%
+	);
+	pointer-events: none;
+}
+
+.products-hero-inner {
+	position: relative;
+	z-index: 1;
+	max-width: 660px;
+	margin: 0 auto;
+}
+
+/* Eyebrow row with animated dot */
+.products-hero-eyebrow {
+	display: inline-flex;
+	align-items: center;
+	gap: 9px;
+	font-size: 11px;
+	font-weight: 700;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--gold-light);
+	margin-bottom: 20px;
+}
+
+.products-hero-eyebrow-dot {
+	width: 6px;
+	height: 6px;
+	border-radius: 50%;
+	background: var(--gold);
+	box-shadow: 0 0 8px rgba(201, 168, 76, 0.65);
+	animation: dotPulse 2.2s ease-in-out infinite;
+	flex-shrink: 0;
+}
+
+.products-hero-title {
+	font-size: clamp(36px, 5vw, 56px);
+	font-weight: 900;
+	letter-spacing: -0.03em;
+	line-height: 1.1;
+	color: var(--text);
+	margin-bottom: 16px;
+}
+
+.products-hero-desc {
+	font-size: 16px;
+	color: var(--text-muted);
+	line-height: 1.75;
+	max-width: 510px;
+	margin: 0 auto 26px;
+}
+
+/* ─── Count badge pill ─────────────────────────────────── */
+
+.products-count-badge {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	padding: 7px 18px;
+	border-radius: 99px;
+	background: rgba(201, 168, 76, 0.07);
+	border: 1px solid rgba(201, 168, 76, 0.22);
+	font-size: 12px;
+	font-weight: 700;
+	color: var(--gold-light);
+	letter-spacing: 0.05em;
+}
+
+.products-count-badge::before {
+	content: "";
+	width: 5px;
+	height: 5px;
+	border-radius: 50%;
+	background: var(--gold);
+	box-shadow: 0 0 7px rgba(201, 168, 76, 0.8);
+	flex-shrink: 0;
+}
+
+/* ─── Catalogue products section wrapper ───────────────── */
+
+.ppage-section-wrap {
+	padding-bottom: 80px;
+}
+
+.ppage-products-header {
+	text-align: center;
+	margin-bottom: 48px;
+}
+
+.ppage-products-header .section-lead {
+	margin: 12px auto 0;
+	text-align: center;
+}
+
+/* ─── CTA Strip ────────────────────────────────────────── */
+
+.ppage-cta-strip {
+	margin: 70px 0 0;
+	padding: 56px 48px;
+	background: rgba(255, 255, 255, 0.022);
+	border: 1px solid var(--border);
+	border-radius: 22px;
+	text-align: center;
+	position: relative;
+	overflow: hidden;
+}
+
+/* Bottom glow accent */
+.ppage-cta-strip::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: radial-gradient(
+		ellipse 55% 90% at 50% 110%,
+		rgba(201, 168, 76, 0.055) 0%,
+		transparent 65%
+	);
+	pointer-events: none;
+}
+
+/* Decorative left orb */
+.ppage-cta-strip::after {
+	content: "";
+	position: absolute;
+	left: -80px;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 260px;
+	height: 260px;
+	border-radius: 50%;
+	background: radial-gradient(
+		circle,
+		rgba(37, 99, 235, 0.05) 0%,
+		transparent 65%
+	);
+	pointer-events: none;
+}
+
+.ppage-cta-eyebrow {
+	font-size: 11px;
+	font-weight: 700;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--gold-light);
+	margin-bottom: 14px;
+	position: relative;
+	z-index: 1;
+}
+
+.ppage-cta-title {
+	font-size: clamp(22px, 3vw, 32px);
+	font-weight: 900;
+	letter-spacing: -0.025em;
+	line-height: 1.15;
+	color: var(--text);
+	margin-bottom: 12px;
+	position: relative;
+	z-index: 1;
+}
+
+.ppage-cta-desc {
+	font-size: 14px;
+	color: var(--text-muted);
+	line-height: 1.75;
+	max-width: 52ch;
+	margin: 0 auto 30px;
+	position: relative;
+	z-index: 1;
+}
+
+.ppage-cta-actions {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 14px;
+	flex-wrap: wrap;
+	position: relative;
+	z-index: 1;
+}
+
+/* ─── Responsive ───────────────────────────────────────── */
+
+@media (max-width: 900px) {
+	.products-page-hero {
+		padding: 100px 20px 52px;
+	}
+}
+
+@media (max-width: 640px) {
+	.products-page-hero {
+		min-height: auto;
+		padding: 100px 18px 46px;
+	}
+
+	.products-hero-title {
+		font-size: clamp(30px, 8vw, 40px);
+	}
+
+	.ppage-cta-strip {
+		padding: 36px 22px;
+		margin: 48px 0 0;
+		border-radius: 16px;
+	}
+
+	.ppage-cta-actions {
+		flex-direction: column;
+	}
+
+	.ppage-cta-actions .btn-primary-gold,
+	.ppage-cta-actions .btn-ghost-dark {
+		width: 100%;
+		justify-content: center;
+	}
+}
