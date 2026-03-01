@@ -1,0 +1,703 @@
+<!doctype html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Politique de Confidentialité · Items Protect</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+			rel="stylesheet" />
+		<link rel="stylesheet" href="css/base.css" />
+		<link rel="stylesheet" href="css/background.css" />
+		<link rel="stylesheet" href="css/layout.css" />
+		<link rel="stylesheet" href="css/components/loader.css" />
+		<link rel="stylesheet" href="css/components/navbar.css" />
+		<link rel="stylesheet" href="css/components/buttons.css" />
+		<link rel="stylesheet" href="css/components/cards.css" />
+		<link rel="stylesheet" href="css/components/toast.css" />
+		<link rel="stylesheet" href="css/components/chatbot.css" />
+		<link rel="stylesheet" href="css/pages/legal.css" />
+		<link rel="stylesheet" href="css/sections/footer.css" />
+		<link rel="stylesheet" href="css/responsive.css" />
+	</head>
+	<body>
+		<div id="global-bg">
+			<div class="bg-base"></div>
+			<div class="bg-grid"></div>
+			<div class="bg-clash"></div>
+			<div class="bg-speed"></div>
+		</div>
+		<canvas id="particleCanvas"></canvas>
+		<div id="loader">
+			<div class="loader-shield">
+				<img
+					src="assets/icons/shield.svg"
+					width="40"
+					height="40"
+					alt=""
+					style="
+						filter: invert(1) sepia(1) saturate(3) hue-rotate(5deg);
+					" />
+			</div>
+			<div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+			<p class="loader-label" data-i18n="loader.label">Items Protect</p>
+		</div>
+		<div class="toast-stack" id="toastStack"></div>
+
+		<nav id="navbar">
+			<a
+				class="nav-logo"
+				href="index.html"
+				data-i18n-aria="nav.logo.aria">
+				<div class="nav-logo-icon">
+					<img
+						src="assets/icons/shield.svg"
+						alt=""
+						style="width:22px;height:22px;filter:brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(5deg);" />
+				</div>
+				<span class="nav-logo-text">Items Protect</span>
+			</a>
+
+			<div class="nav-center">
+				<!-- Navigation select -->
+				<div class="nav-sel" id="navSel">
+					<button class="nav-sel-trigger" id="navSelTrigger" type="button">
+						<svg style="width:14px;height:14px;opacity:.55;flex-shrink:0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+						<span data-i18n="nav.menu.label">Navigation</span>
+						<svg class="nav-sel-chevron" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 4.5l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+					</button>
+					<div class="nav-sel-panel" id="navSelPanel">
+						<a class="nav-sel-item" href="index.html#story" data-i18n="nav.histoire">
+							<span class="nav-sel-dot"></span>Notre histoire
+						</a>
+						<a class="nav-sel-item" href="products.html" data-i18n="nav.catalogue">
+							<span class="nav-sel-dot"></span>Catalogue
+						</a>
+						<a class="nav-sel-item" href="index.html#universes" data-i18n="nav.univers">
+							<span class="nav-sel-dot"></span>Univers
+						</a>
+						<a class="nav-sel-item" href="index.html#testi" data-i18n="nav.avis">
+							<span class="nav-sel-dot"></span>Avis
+						</a>
+						<a class="nav-sel-item" href="index.html#faq" data-i18n="nav.faq">
+							<span class="nav-sel-dot"></span>FAQ
+						</a>
+					</div>
+				</div>
+
+				<!-- Social networks select -->
+				<div class="nav-sel" id="socialSel">
+					<button class="nav-sel-trigger" id="socialSelTrigger" type="button">
+						<svg style="width:14px;height:14px;opacity:.55;flex-shrink:0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+						<span data-i18n="nav.social.label">Réseaux</span>
+						<svg class="nav-sel-chevron" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 4.5l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+					</button>
+					<div class="nav-sel-panel" id="socialSelPanel">
+						<div class="nav-sel-label" data-i18n="nav.social.find">Nous retrouver</div>
+						<a class="nav-sel-item" href="mailto:contact@itemsprotect.fr">
+							<span class="nav-sel-dot"></span>Email
+						</a>
+						<a class="nav-sel-item" href="#" onclick="toast({ type: 'info', title: 'Instagram', message: '@ItemsProtect' }); return false;">
+							<span class="nav-sel-dot"></span>Instagram
+						</a>
+						<a class="nav-sel-item" href="#" onclick="toast({ type: 'info', title: 'Discord', message: 'Serveur Items Protect' }); return false;">
+							<span class="nav-sel-dot"></span>Discord
+						</a>
+					</div>
+				</div>
+
+				<!-- Language select -->
+				<div class="nav-sel" id="langSel">
+					<button class="nav-sel-trigger nav-sel-trigger--lang" id="langSelTrigger" type="button">
+						<span class="nav-sel-langflag" id="navLangFlag">🇫🇷</span>
+						<span class="nav-sel-langname" id="navLangCode">Français</span>
+						<svg class="nav-sel-chevron" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 4.5l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+					</button>
+					<div class="nav-sel-panel nav-sel-panel--right" id="langSelPanel">
+						<div class="nav-sel-label" data-i18n="nav.lang.label">Langue</div>
+						<button class="nav-sel-item nav-sel-item--active lang-btn lang-btn--active" data-lang="fr" type="button">
+							<span>��🇷</span> Français
+						</button>
+						<button class="nav-sel-item lang-btn" data-lang="en" type="button">
+							<span>🇬🇧</span> English
+						</button>
+						<button class="nav-sel-item lang-btn" data-lang="es" type="button">
+							<span>🇪🇸</span> Español
+						</button>
+						<button class="nav-sel-item lang-btn" data-lang="ja" type="button">
+							<span>🇯🇵</span> 日本語
+						</button>
+						<button class="nav-sel-item lang-btn" data-lang="zh" type="button">
+							<span>🇨🇳</span> 中文
+						</button>
+					</div>
+				</div>
+			</div>
+
+			<a class="nav-cta" href="contact.html" data-i18n="nav.commander">Commander ✦</a>
+			<button class="nav-hamburger" id="navHam" data-i18n-aria="nav.menu.aria" aria-label="Menu">
+				<span></span><span></span><span></span>
+			</button>
+		</nav>
+		<div class="mobile-menu" id="mobileMenu">
+			<a
+				href="index.html#story"
+				onclick="closeMob()"
+				data-i18n="nav.histoire"
+				>Notre histoire</a
+			>
+			<a
+				href="products.html"
+				onclick="closeMob()"
+				data-i18n="nav.catalogue"
+				>Catalogue</a
+			>
+			<a
+				href="index.html#universes"
+				onclick="closeMob()"
+				data-i18n="nav.univers"
+				>Univers TCG</a
+			>
+			<a href="index.html#testi" onclick="closeMob()" data-i18n="nav.avis"
+				>Avis clients</a
+			>
+			<a href="index.html#faq" onclick="closeMob()" data-i18n="nav.faq"
+				>FAQ</a
+			>
+			<a
+				href="contact.html"
+				onclick="closeMob()"
+				style="color: var(--gold-light); font-weight: 800"
+				data-i18n="nav.commander"
+				>Commander →</a
+			>
+			<div class="mobile-lang">
+				<button class="lang-btn lang-btn--active" data-lang="fr">
+					<span class="lang-flag">🇫🇷</span> FR
+				</button>
+				<button class="lang-btn" data-lang="en">
+					<span class="lang-flag">🇬🇧</span> EN
+				</button>
+				<button class="lang-btn" data-lang="es">
+					<span class="lang-flag">🇪🇸</span> ES
+				</button>
+				<button class="lang-btn" data-lang="ja">
+					<span class="lang-flag">🇯🇵</span> JA
+				</button>
+				<button class="lang-btn" data-lang="zh">
+					<span class="lang-flag">🇨🇳</span> ZH
+				</button>
+			</div>
+		</div>
+
+		<!-- Hero -->
+		<div class="legal-hero">
+			<div class="legal-hero-inner">
+				<div class="eyebrow reveal" data-i18n="privacy.hero.eyebrow">Vos données</div>
+				<h1 class="legal-hero-title reveal" data-i18n="privacy.hero.title">
+					Politique de Confidentialité
+				</h1>
+				<p class="legal-hero-date" data-i18n="privacy.hero.date">
+					Dernière mise à jour : 21 février 2025
+				</p>
+			</div>
+		</div>
+
+		<!-- Content -->
+		<div class="legal-content">
+			<a class="legal-back" href="index.html">
+				<img
+					src="assets/icons/arrow-left.svg"
+					width="14"
+					height="14"
+					alt="" />
+				<span data-i18n="privacy.back">Retour à l'accueil</span>
+			</a>
+
+			<!-- Article 1 -->
+			<div class="legal-section reveal">
+				<p class="legal-section-num">Article 1</p>
+				<h2 data-i18n="privacy.art1.title">Responsable du traitement</h2>
+				<div data-i18n-html="privacy.art1.content">
+					<p>
+						Le responsable du traitement des données personnelles
+						collectées sur le site itemsprotect.fr est
+						<strong>Items Protect</strong>, micro-entreprise française.
+					</p>
+					<ul>
+						<li><strong>Dénomination :</strong> Items Protect</li>
+						<li>
+							<strong>Email de contact :</strong>
+							<a href="mailto:contact@itemsprotect.fr"
+								>contact@itemsprotect.fr</a
+							>
+						</li>
+					</ul>
+					<p>
+						Items Protect s'engage à traiter vos données personnelles
+						dans le strict respect du Règlement Général sur la
+						Protection des Données (RGPD, Règlement UE 2016/679) et de
+						la loi Informatique et Libertés du 6 janvier 1978 modifiée.
+					</p>
+				</div>
+			</div>
+
+			<!-- Article 2 -->
+			<div class="legal-section reveal">
+				<p class="legal-section-num">Article 2</p>
+				<h2 data-i18n="privacy.art2.title">Données collectées</h2>
+				<div data-i18n-html="privacy.art2.content">
+					<p>
+						Dans le cadre de notre activité, Items Protect est
+						susceptible de collecter les données personnelles suivantes
+						:
+					</p>
+					<ul>
+						<li>
+							<strong>Données d'identification :</strong> nom, prénom,
+							pseudonyme
+						</li>
+						<li>
+							<strong>Coordonnées :</strong> adresse email, adresse
+							postale de livraison, numéro de téléphone (si fourni)
+						</li>
+						<li>
+							<strong>Données de commande :</strong> nature des
+							produits commandés, montant, historique des achats
+						</li>
+						<li>
+							<strong>Données de paiement :</strong> traitées
+							directement par nos prestataires de paiement sécurisés
+							(Items Protect ne conserve pas vos données bancaires)
+						</li>
+						<li>
+							<strong>Données de communication :</strong> messages via
+							le formulaire de contact, échanges par email ou
+							messagerie instantanée
+						</li>
+						<li>
+							<strong>Données techniques :</strong> adresse IP,
+							données de navigation (cookies techniques uniquement)
+						</li>
+						<li>
+							<strong>Réseaux sociaux :</strong> pseudonyme Instagram
+							ou Discord si fourni volontairement
+						</li>
+					</ul>
+					<p>
+						Nous ne collectons que les données strictement nécessaires à
+						l'exécution de nos prestations (principe de minimisation des
+						données).
+					</p>
+				</div>
+			</div>
+
+			<!-- Article 3 -->
+			<div class="legal-section reveal">
+				<p class="legal-section-num">Article 3</p>
+				<h2 data-i18n="privacy.art3.title">Finalités du traitement</h2>
+				<div data-i18n-html="privacy.art3.content">
+					<p>
+						Vos données personnelles sont collectées et traitées pour
+						les finalités suivantes :
+					</p>
+					<ul>
+						<li>
+							<strong>Gestion des commandes :</strong> traitement,
+							fabrication, expédition et suivi des commandes
+						</li>
+						<li>
+							<strong>Service client :</strong> réponse aux demandes
+							de contact, de devis et de support après-vente
+						</li>
+						<li>
+							<strong>Relation commerciale :</strong> envoi
+							d'informations relatives à votre commande, factures et
+							confirmations
+						</li>
+						<li>
+							<strong>Amélioration de nos services :</strong> analyse
+							des retours clients pour améliorer nos produits et notre
+							site
+						</li>
+						<li>
+							<strong>Obligations légales :</strong> conservation des
+							documents comptables et commerciaux conformément à la
+							loi
+						</li>
+						<li>
+							<strong>Communication marketing :</strong> uniquement
+							avec votre consentement explicite, envoi d'informations
+							sur nos nouveaux produits
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<!-- Article 4 -->
+			<div class="legal-section reveal">
+				<p class="legal-section-num">Article 4</p>
+				<h2 data-i18n="privacy.art4.title">Base légale des traitements</h2>
+				<div data-i18n-html="privacy.art4.content">
+					<p>
+						Chaque traitement de données repose sur une base légale
+						conforme au RGPD :
+					</p>
+					<ul>
+						<li>
+							<strong>Exécution du contrat :</strong> traitement de
+							votre commande, livraison, facturation (article 6.1.b
+							RGPD)
+						</li>
+						<li>
+							<strong>Obligation légale :</strong> conservation des
+							documents comptables pendant 10 ans (article 6.1.c RGPD)
+						</li>
+						<li>
+							<strong>Intérêt légitime :</strong> prévention de la
+							fraude, amélioration de nos services (article 6.1.f
+							RGPD)
+						</li>
+						<li>
+							<strong>Consentement :</strong> communications
+							marketing, utilisation de cookies non essentiels
+							(article 6.1.a RGPD)
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<!-- Article 5 -->
+			<div class="legal-section reveal">
+				<p class="legal-section-num">Article 5</p>
+				<h2 data-i18n="privacy.art5.title">Durée de conservation</h2>
+				<div data-i18n-html="privacy.art5.content">
+					<p>
+						Vos données personnelles sont conservées pour les durées
+						suivantes :
+					</p>
+					<ul>
+						<li>
+							<strong>Données clients et commandes :</strong> 5 ans à
+							compter de la dernière commande (prescription
+							commerciale)
+						</li>
+						<li>
+							<strong>Données comptables et factures :</strong> 10 ans
+							conformément aux obligations légales
+						</li>
+						<li>
+							<strong>Données de contact (formulaire) :</strong> 3 ans
+							à compter du dernier contact
+						</li>
+						<li>
+							<strong>Données de navigation (cookies) :</strong> 13
+							mois maximum
+						</li>
+						<li>
+							<strong>Données marketing :</strong> jusqu'au retrait du
+							consentement ou 3 ans sans interaction
+						</li>
+					</ul>
+					<p>
+						Au-delà de ces durées, vos données sont supprimées ou
+						anonymisées de manière irréversible.
+					</p>
+				</div>
+			</div>
+
+			<!-- Article 6 -->
+			<div class="legal-section reveal">
+				<p class="legal-section-num">Article 6</p>
+				<h2 data-i18n="privacy.art6.title">Partage et transfert des données</h2>
+				<div data-i18n-html="privacy.art6.content">
+					<p>
+						Items Protect ne vend ni ne loue vos données personnelles à
+						des tiers. Vos données peuvent être partagées avec les
+						catégories de destinataires suivants dans le cadre strict de
+						l'exécution de nos prestations :
+					</p>
+					<ul>
+						<li>
+							<strong>Prestataires de transport :</strong> pour la
+							livraison de vos commandes (nom, adresse, téléphone)
+						</li>
+						<li>
+							<strong>Prestataires de paiement :</strong> pour le
+							traitement sécurisé des transactions
+						</li>
+						<li>
+							<strong>Prestataires techniques :</strong> hébergeur du
+							site, outils de messagerie professionnelle
+						</li>
+					</ul>
+					<p>
+						Tous nos prestataires sont soumis à des obligations
+						contractuelles de confidentialité et de sécurité. Dans la
+						mesure du possible, nous privilégions des prestataires
+						établis dans l'Union Européenne. En cas de transfert hors
+						UE, des garanties appropriées sont mises en place (clauses
+						contractuelles types de la Commission européenne).
+					</p>
+				</div>
+			</div>
+
+			<!-- Article 7 -->
+			<div class="legal-section reveal">
+				<p class="legal-section-num">Article 7</p>
+				<h2 data-i18n="privacy.art7.title">Vos droits</h2>
+				<div data-i18n-html="privacy.art7.content">
+					<p>
+						Conformément au RGPD et à la loi Informatique et Libertés,
+						vous disposez des droits suivants concernant vos données
+						personnelles :
+					</p>
+					<ul>
+						<li>
+							<strong>Droit d'accès :</strong> obtenir une copie de
+							vos données personnelles traitées par Items Protect
+						</li>
+						<li>
+							<strong>Droit de rectification :</strong> corriger des
+							données inexactes ou incomplètes
+						</li>
+						<li>
+							<strong>Droit à l'effacement :</strong> demander la
+							suppression de vos données (« droit à l'oubli »), sous
+							réserve des obligations légales
+						</li>
+						<li>
+							<strong>Droit à la limitation :</strong> suspendre
+							temporairement le traitement de vos données
+						</li>
+						<li>
+							<strong>Droit à la portabilité :</strong> recevoir vos
+							données dans un format structuré et lisible par machine
+						</li>
+						<li>
+							<strong>Droit d'opposition :</strong> vous opposer au
+							traitement de vos données à des fins de prospection
+							commerciale
+						</li>
+						<li>
+							<strong>Droit de retrait du consentement :</strong>
+							retirer votre consentement à tout moment pour les
+							traitements basés sur celui-ci
+						</li>
+					</ul>
+					<p>
+						Pour exercer ces droits, contactez-nous par email à
+						<a href="mailto:contact@itemsprotect.fr"
+							>contact@itemsprotect.fr</a
+						>
+						en joignant une copie de votre pièce d'identité. Nous nous
+						engageons à répondre dans un délai d'un mois (délai pouvant
+						être prolongé de deux mois pour les demandes complexes).
+					</p>
+					<p>
+						Vous disposez également du droit d'introduire une
+						réclamation auprès de la <strong>CNIL</strong> (Commission
+						Nationale de l'Informatique et des Libertés) :
+						<a href="https://www.cnil.fr" target="_blank" rel="noopener"
+							>www.cnil.fr</a
+						>.
+					</p>
+				</div>
+			</div>
+
+			<!-- Article 8 -->
+			<div class="legal-section reveal">
+				<p class="legal-section-num">Article 8</p>
+				<h2 data-i18n="privacy.art8.title">Sécurité des données</h2>
+				<div data-i18n-html="privacy.art8.content">
+					<p>
+						Items Protect met en œuvre toutes les mesures techniques et
+						organisationnelles appropriées pour garantir la sécurité, la
+						confidentialité et l'intégrité de vos données personnelles,
+						notamment :
+					</p>
+					<ul>
+						<li>
+							Chiffrement des communications via le protocole HTTPS
+							(TLS)
+						</li>
+						<li>
+							Accès restreint aux données personnelles aux seules
+							personnes habilitées
+						</li>
+						<li>
+							Hébergement sécurisé des données chez des prestataires
+							certifiés
+						</li>
+						<li>
+							Mots de passe forts et authentification sécurisée pour
+							l'accès aux systèmes
+						</li>
+						<li>Sauvegardes régulières des données</li>
+					</ul>
+					<p>
+						En cas de violation de données à caractère personnel
+						susceptible d'engendrer un risque pour vos droits et
+						libertés, Items Protect s'engage à notifier la CNIL dans les
+						72 heures et à vous en informer dans les meilleurs délais si
+						le risque est élevé, conformément à l'article 33 du RGPD.
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<footer>
+			<div class="footer-grid">
+				<div>
+					<a class="footer-logo" href="index.html">
+						<div class="footer-logo-icon">
+							<img
+								src="assets/icons/shield.svg"
+								width="16"
+								height="16"
+								alt=""
+								style="
+									filter: invert(1) sepia(1) saturate(3)
+										hue-rotate(5deg) brightness(0.8);
+								" />
+						</div>
+						<span class="footer-logo-name">Items Protect</span>
+					</a>
+					<p class="footer-desc" data-i18n="footer.desc">
+						Protections acryliques premium pour collectionneurs
+						passionnés. TCG, figurines, scellés et objets rares,
+						depuis 2022.
+					</p>
+					<div class="footer-socials">
+						<a
+							class="footer-social-chip"
+							href="mailto:contact@itemsprotect.fr" data-i18n="footer.contact.email">
+							📧 Email
+						</a>
+						<a
+							class="footer-social-chip"
+							href="#"
+							onclick="toast({ type: 'info', title: 'Instagram', message: '@itemsprotect' }); return false;" data-i18n="footer.contact.instagram">
+							📸 Instagram
+						</a>
+						<a
+							class="footer-social-chip"
+							href="#"
+							onclick="toast({ type: 'info', title: 'Discord', message: 'Discord Items Protect' }); return false;" data-i18n="footer.contact.discord">
+							💬 Discord
+						</a>
+					</div>
+				</div>
+				<div>
+					<p class="footer-col-title" data-i18n="footer.nav.title">
+						Navigation
+					</p>
+					<ul class="footer-links">
+						<li><a href="index.html#story" data-i18n="footer.nav.histoire">Notre histoire</a></li>
+						<li><a href="products.html" data-i18n="footer.nav.catalogue">Catalogue</a></li>
+						<li><a href="index.html#universes" data-i18n="footer.nav.univers">Univers</a></li>
+						<li><a href="index.html#testi" data-i18n="footer.nav.avis">Avis clients</a></li>
+					</ul>
+				</div>
+				<div>
+					<p
+						class="footer-col-title"
+						data-i18n="footer.products.title">
+						Produits
+					</p>
+					<ul class="footer-links">
+						<li><a href="products.html" data-i18n="footer.products.tcg">Boîtes TCG</a></li>
+						<li><a href="products.html" data-i18n="footer.products.fig">Vitrines figurines</a></li>
+						<li><a href="products.html" data-i18n="footer.products.displays">Protection displays</a></li>
+						<li><a href="contact.html" data-i18n="footer.products.custom">Sur mesure &amp; pro</a></li>
+					</ul>
+				</div>
+				<div>
+					<p
+						class="footer-col-title"
+						data-i18n="footer.contact.title">
+						Contact
+					</p>
+					<ul class="footer-links">
+						<li>
+							<a href="mailto:contact@itemsprotect.fr"
+								 data-i18n="footer.contact.email">📧 Email</a
+							>
+						</li>
+						<li>
+							<a
+								href="#"
+								onclick="
+									toast({
+										type: 'info',
+										title: 'Discord',
+										message:
+											'Items Protect · Rejoignez-nous !',
+									});
+									return false;
+								"
+								 data-i18n="footer.contact.discord">💬 Discord</a
+							>
+						</li>
+						<li>
+							<a
+								href="#"
+								onclick="
+									toast({
+										type: 'info',
+										title: 'Instagram',
+										message: '@itemsprotect',
+									});
+									return false;
+								"
+								 data-i18n="footer.contact.instagram">📸 Instagram</a
+							>
+						</li>
+						<li>
+							<a
+								href="#"
+								onclick="
+									toast({
+										type: 'info',
+										title: 'TikTok',
+										message: '@itemsprotect',
+									});
+									return false;
+								"
+								 data-i18n="footer.contact.tiktok">🎵 TikTok</a
+							>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="footer-bottom">
+				<span class="footer-copy" data-i18n="footer.copy"
+					>© 2025 Items Protect · Tous droits réservés</span
+				>
+				<div class="footer-legal">
+					<a
+						href="mentions-legales.html"
+						data-i18n="footer.legal.mentions"
+						>Mentions légales</a
+					>
+					<a href="cgv.html" data-i18n="footer.legal.cgv">CGV</a>
+					<a
+						href="confidentialite.html"
+						data-i18n="footer.legal.confidentialite"
+						>Confidentialité</a
+					>
+				</div>
+			</div>
+		</footer>
+
+		<script src="scripts/core/i18n.js"></script>
+		<script src="scripts/components/toast.js"></script>
+		<script src="scripts/core/loader.js"></script>
+		<script src="scripts/components/navigation.js"></script>
+		<script src="scripts/utils/scroll.js"></script>
+		<script src="scripts/utils/particles.js"></script>
+		<script src="scripts/components/chatbot.js"></script>
+	</body>
+</html>

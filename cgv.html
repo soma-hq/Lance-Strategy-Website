@@ -1,0 +1,640 @@
+<!doctype html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Conditions Générales de Vente · Items Protect</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+			rel="stylesheet" />
+		<link rel="stylesheet" href="css/base.css" />
+		<link rel="stylesheet" href="css/background.css" />
+		<link rel="stylesheet" href="css/layout.css" />
+		<link rel="stylesheet" href="css/components/loader.css" />
+		<link rel="stylesheet" href="css/components/navbar.css" />
+		<link rel="stylesheet" href="css/components/buttons.css" />
+		<link rel="stylesheet" href="css/components/cards.css" />
+		<link rel="stylesheet" href="css/components/toast.css" />
+		<link rel="stylesheet" href="css/components/chatbot.css" />
+		<link rel="stylesheet" href="css/pages/legal.css" />
+		<link rel="stylesheet" href="css/sections/footer.css" />
+		<link rel="stylesheet" href="css/responsive.css" />
+	</head>
+	<body>
+		<div id="global-bg">
+			<div class="bg-base"></div>
+			<div class="bg-grid"></div>
+			<div class="bg-clash"></div>
+			<div class="bg-speed"></div>
+		</div>
+		<canvas id="particleCanvas"></canvas>
+		<div id="loader">
+			<div class="loader-shield">
+				<img
+					src="assets/icons/shield.svg"
+					width="40"
+					height="40"
+					alt=""
+					style="
+						filter: invert(1) sepia(1) saturate(3) hue-rotate(5deg);
+					" />
+			</div>
+			<div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+			<p class="loader-label" data-i18n="loader.label">Items Protect</p>
+		</div>
+		<div class="toast-stack" id="toastStack"></div>
+
+		<nav id="navbar">
+			<a
+				class="nav-logo"
+				href="index.html"
+				data-i18n-aria="nav.logo.aria">
+				<div class="nav-logo-icon">
+					<img
+						src="assets/icons/shield.svg"
+						alt=""
+						style="width:22px;height:22px;filter:brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(5deg);" />
+				</div>
+				<span class="nav-logo-text">Items Protect</span>
+			</a>
+
+			<div class="nav-center">
+				<!-- Navigation select -->
+				<div class="nav-sel" id="navSel">
+					<button class="nav-sel-trigger" id="navSelTrigger" type="button">
+						<svg style="width:14px;height:14px;opacity:.55;flex-shrink:0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+						<span data-i18n="nav.menu.label">Navigation</span>
+						<svg class="nav-sel-chevron" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 4.5l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+					</button>
+					<div class="nav-sel-panel" id="navSelPanel">
+						<a class="nav-sel-item" href="index.html#story" data-i18n="nav.histoire">
+							<span class="nav-sel-dot"></span>Notre histoire
+						</a>
+						<a class="nav-sel-item" href="products.html" data-i18n="nav.catalogue">
+							<span class="nav-sel-dot"></span>Catalogue
+						</a>
+						<a class="nav-sel-item" href="index.html#universes" data-i18n="nav.univers">
+							<span class="nav-sel-dot"></span>Univers
+						</a>
+						<a class="nav-sel-item" href="index.html#testi" data-i18n="nav.avis">
+							<span class="nav-sel-dot"></span>Avis
+						</a>
+						<a class="nav-sel-item" href="index.html#faq" data-i18n="nav.faq">
+							<span class="nav-sel-dot"></span>FAQ
+						</a>
+					</div>
+				</div>
+
+				<!-- Social networks select -->
+				<div class="nav-sel" id="socialSel">
+					<button class="nav-sel-trigger" id="socialSelTrigger" type="button">
+						<svg style="width:14px;height:14px;opacity:.55;flex-shrink:0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+						<span data-i18n="nav.social.label">Réseaux</span>
+						<svg class="nav-sel-chevron" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 4.5l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+					</button>
+					<div class="nav-sel-panel" id="socialSelPanel">
+						<div class="nav-sel-label" data-i18n="nav.social.find">Nous retrouver</div>
+						<a class="nav-sel-item" href="mailto:contact@itemsprotect.fr">
+							<span class="nav-sel-dot"></span>Email
+						</a>
+						<a class="nav-sel-item" href="#" onclick="toast({ type: 'info', title: 'Instagram', message: '@ItemsProtect' }); return false;">
+							<span class="nav-sel-dot"></span>Instagram
+						</a>
+						<a class="nav-sel-item" href="#" onclick="toast({ type: 'info', title: 'Discord', message: 'Serveur Items Protect' }); return false;">
+							<span class="nav-sel-dot"></span>Discord
+						</a>
+					</div>
+				</div>
+
+				<!-- Language select -->
+				<div class="nav-sel" id="langSel">
+					<button class="nav-sel-trigger nav-sel-trigger--lang" id="langSelTrigger" type="button">
+						<span class="nav-sel-langflag" id="navLangFlag">🇫🇷</span>
+						<span class="nav-sel-langname" id="navLangCode">Français</span>
+						<svg class="nav-sel-chevron" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 4.5l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+					</button>
+					<div class="nav-sel-panel nav-sel-panel--right" id="langSelPanel">
+						<div class="nav-sel-label" data-i18n="nav.lang.label">Langue</div>
+						<button class="nav-sel-item nav-sel-item--active lang-btn lang-btn--active" data-lang="fr" type="button">
+							<span>��🇷</span> Français
+						</button>
+						<button class="nav-sel-item lang-btn" data-lang="en" type="button">
+							<span>🇬🇧</span> English
+						</button>
+						<button class="nav-sel-item lang-btn" data-lang="es" type="button">
+							<span>🇪🇸</span> Español
+						</button>
+						<button class="nav-sel-item lang-btn" data-lang="ja" type="button">
+							<span>🇯🇵</span> 日本語
+						</button>
+						<button class="nav-sel-item lang-btn" data-lang="zh" type="button">
+							<span>🇨🇳</span> 中文
+						</button>
+					</div>
+				</div>
+			</div>
+
+			<a class="nav-cta" href="contact.html" data-i18n="nav.commander">Commander ✦</a>
+			<button class="nav-hamburger" id="navHam" data-i18n-aria="nav.menu.aria" aria-label="Menu">
+				<span></span><span></span><span></span>
+			</button>
+		</nav>
+		<div class="mobile-menu" id="mobileMenu">
+			<a
+				href="index.html#story"
+				onclick="closeMob()"
+				data-i18n="nav.histoire"
+				>Notre histoire</a
+			>
+			<a
+				href="products.html"
+				onclick="closeMob()"
+				data-i18n="nav.catalogue"
+				>Catalogue</a
+			>
+			<a
+				href="index.html#universes"
+				onclick="closeMob()"
+				data-i18n="nav.univers"
+				>Univers TCG</a
+			>
+			<a href="index.html#testi" onclick="closeMob()" data-i18n="nav.avis"
+				>Avis clients</a
+			>
+			<a href="index.html#faq" onclick="closeMob()" data-i18n="nav.faq"
+				>FAQ</a
+			>
+			<a
+				href="contact.html"
+				onclick="closeMob()"
+				style="color: var(--gold-light); font-weight: 800"
+				data-i18n="nav.commander"
+				>Commander →</a
+			>
+			<div class="mobile-lang">
+				<button class="lang-btn lang-btn--active" data-lang="fr">
+					<span class="lang-flag">🇫🇷</span> FR
+				</button>
+				<button class="lang-btn" data-lang="en">
+					<span class="lang-flag">🇬🇧</span> EN
+				</button>
+				<button class="lang-btn" data-lang="es">
+					<span class="lang-flag">🇪🇸</span> ES
+				</button>
+				<button class="lang-btn" data-lang="ja">
+					<span class="lang-flag">🇯🇵</span> JA
+				</button>
+				<button class="lang-btn" data-lang="zh">
+					<span class="lang-flag">🇨🇳</span> ZH
+				</button>
+			</div>
+		</div>
+
+		<!-- Hero -->
+		<div class="legal-hero">
+			<div class="legal-hero-inner">
+				<div class="eyebrow reveal" data-i18n="cgv.hero.eyebrow">Vos droits</div>
+				<h1 class="legal-hero-title reveal" data-i18n="cgv.hero.title">
+					Conditions Générales de Vente
+				</h1>
+				<p class="legal-hero-date" data-i18n="cgv.hero.date">
+					Dernière mise à jour : 21 février 2025
+				</p>
+			</div>
+		</div>
+
+		<!-- Content -->
+		<div class="legal-content">
+			<a class="legal-back" href="index.html">
+				<img
+					src="assets/icons/arrow-left.svg"
+					width="14"
+					height="14"
+					alt="" />
+				<span data-i18n="cgv.back">Retour à l'accueil</span>
+			</a>
+
+			<!-- Article 1 -->
+			<div class="legal-section reveal">
+				<p class="legal-section-num">Article 1</p>
+				<h2 data-i18n="cgv.art1.title">Champ d'application</h2>
+				<div data-i18n-html="cgv.art1.content">
+					<p>
+						Les présentes Conditions Générales de Vente (ci-après « CGV
+						») s'appliquent à toutes les commandes passées auprès
+						d'<strong>Items Protect</strong>, micro-entreprise française
+						spécialisée dans la fabrication et la vente de protections
+						acryliques sur mesure pour collectionneurs.
+					</p>
+					<p>
+						Toute commande implique l'acceptation sans réserve des
+						présentes CGV. Items Protect se réserve le droit de modifier
+						ses CGV à tout moment ; les CGV applicables sont celles en
+						vigueur à la date de la commande.
+					</p>
+					<p>
+						Ces conditions s'appliquent exclusivement aux transactions
+						entre Items Protect et des acheteurs particuliers ou
+						professionnels (B2C et B2B), résidant principalement en
+						France et dans l'Union Européenne.
+					</p>
+				</div>
+			</div>
+
+			<!-- Article 2 -->
+			<div class="legal-section reveal">
+				<p class="legal-section-num">Article 2</p>
+				<h2 data-i18n="cgv.art2.title">Produits et commandes</h2>
+				<div data-i18n-html="cgv.art2.content">
+					<p>
+						Items Protect propose des protections acryliques premium
+						destinées à la conservation et à la mise en valeur
+						d'articles de collection, notamment :
+					</p>
+					<ul>
+						<li>
+							Protections pour boosters TCG (Pokémon, Yu-Gi-Oh!,
+							Magic: The Gathering, etc.)
+						</li>
+						<li>
+							Protections pour Elite Trainer Box et displays scellés
+						</li>
+						<li>Vitrines et présentoirs pour figurines et Amiibo</li>
+						<li>
+							Réalisations sur mesure selon les spécifications du
+							client
+						</li>
+					</ul>
+					<p>
+						Toute commande est effectuée via notre formulaire de contact
+						ou par échange direct. Une confirmation écrite (email) vaut
+						acceptation de la commande par Items Protect. Items Protect
+						se réserve le droit de refuser toute commande pour des
+						raisons légitimes.
+					</p>
+				</div>
+			</div>
+
+			<!-- Article 3 -->
+			<div class="legal-section reveal">
+				<p class="legal-section-num">Article 3</p>
+				<h2 data-i18n="cgv.art3.title">Prix et paiement</h2>
+				<div data-i18n-html="cgv.art3.content">
+					<p>
+						Les prix sont indiqués en euros (€), toutes taxes comprises
+						(TTC) pour les particuliers. Items Protect, en tant que
+						micro-entreprise bénéficiant de la franchise en base de TVA
+						(article 293 B du CGI), n'est pas assujetti à la TVA.
+					</p>
+					<p>
+						Les prix peuvent être modifiés à tout moment. Le prix
+						applicable est celui affiché ou communiqué au moment de la
+						validation de la commande.
+					</p>
+					<p>
+						Le paiement s'effectue selon les modalités convenues lors de
+						la commande (virement bancaire, PayPal, paiement en ligne
+						sécurisé ou autre moyen convenu). Pour les commandes sur
+						mesure, un acompte de 30 % à 50 % peut être demandé à la
+						confirmation.
+					</p>
+				</div>
+			</div>
+
+			<!-- Article 4 -->
+			<div class="legal-section reveal">
+				<p class="legal-section-num">Article 4</p>
+				<h2 data-i18n="cgv.art4.title">Délais de fabrication et livraison</h2>
+				<div data-i18n-html="cgv.art4.content">
+					<p>
+						Items Protect fabrique ses produits artisanalement en
+						France. Les délais de fabrication indiqués sont donnés à
+						titre indicatif et peuvent varier selon la charge de travail
+						et la complexité de la commande :
+					</p>
+					<ul>
+						<li>
+							<strong>Produits catalogue standard :</strong> 5 à 10
+							jours ouvrés
+						</li>
+						<li>
+							<strong>Réalisations sur mesure :</strong> 10 à 21 jours
+							ouvrés selon la complexité
+						</li>
+						<li>
+							<strong
+								>Commandes groupées ou professionnelles :</strong
+							>
+							délai à convenir selon le volume
+						</li>
+					</ul>
+					<p>
+						La livraison est assurée par un transporteur partenaire. Les
+						frais de port sont à la charge de l'acheteur sauf indication
+						contraire. Items Protect ne saurait être tenu responsable
+						des retards imputables au transporteur.
+					</p>
+				</div>
+			</div>
+
+			<!-- Article 5 -->
+			<div class="legal-section reveal">
+				<p class="legal-section-num">Article 5</p>
+				<h2 data-i18n="cgv.art5.title">Droit de rétractation</h2>
+				<div data-i18n-html="cgv.art5.content">
+					<p>
+						Conformément à l'article L.221-18 du Code de la
+						consommation, le consommateur dispose d'un délai de
+						<strong>14 jours calendaires</strong> à compter de la
+						réception du produit pour exercer son droit de rétractation,
+						sans avoir à justifier de motifs ni à payer de pénalités.
+					</p>
+					<p>
+						<strong>Exception :</strong> Le droit de rétractation ne
+						s'applique pas aux produits réalisés sur mesure ou
+						personnalisés selon les spécifications du client (article
+						L.221-28 du Code de la consommation).
+					</p>
+					<p>
+						Pour exercer ce droit, le client doit notifier sa décision
+						par email à
+						<a href="mailto:contact@itemsprotect.fr"
+							>contact@itemsprotect.fr</a
+						>
+						avant l'expiration du délai. Les frais de retour sont à la
+						charge du client. Le remboursement intervient dans un délai
+						de 14 jours suivant la réception du retour.
+					</p>
+				</div>
+			</div>
+
+			<!-- Article 6 -->
+			<div class="legal-section reveal">
+				<p class="legal-section-num">Article 6</p>
+				<h2 data-i18n="cgv.art6.title">Garanties et conformité</h2>
+				<div data-i18n-html="cgv.art6.content">
+					<p>Tous les produits Items Protect bénéficient :</p>
+					<ul>
+						<li>
+							<strong>Garantie légale de conformité</strong> (articles
+							L.217-4 et suivants du Code de la consommation) : 2 ans
+							à compter de la délivrance du bien
+						</li>
+						<li>
+							<strong>Garantie contre les vices cachés</strong>
+							(articles 1641 et suivants du Code civil)
+						</li>
+					</ul>
+					<p>
+						En cas de produit défectueux ou non conforme à la commande,
+						le client doit contacter Items Protect dans les 30 jours
+						suivant la réception, en joignant des photographies du
+						défaut constaté. Items Protect procèdera selon les cas au
+						remplacement, à la réparation ou au remboursement du
+						produit.
+					</p>
+					<p>
+						Ces garanties ne couvrent pas les dommages résultant d'une
+						utilisation anormale, d'un accident ou d'une modification du
+						produit par le client.
+					</p>
+				</div>
+			</div>
+
+			<!-- Article 7 -->
+			<div class="legal-section reveal">
+				<p class="legal-section-num">Article 7</p>
+				<h2 data-i18n="cgv.art7.title">Responsabilité</h2>
+				<div data-i18n-html="cgv.art7.content">
+					<p>
+						Items Protect s'engage à mettre tout en œuvre pour fournir
+						des produits de qualité irréprochable. Toutefois, la
+						responsabilité d'Items Protect ne saurait être engagée en
+						cas de :
+					</p>
+					<ul>
+						<li>Mauvaise utilisation du produit par le client</li>
+						<li>
+							Dommages causés aux articles de collection protégés
+							résultant d'une installation incorrecte
+						</li>
+						<li>
+							Force majeure ou événements indépendants de la volonté
+							d'Items Protect
+						</li>
+						<li>Retards de livraison imputables au transporteur</li>
+					</ul>
+					<p>
+						En tout état de cause, la responsabilité d'Items Protect est
+						limitée au montant de la commande concernée.
+					</p>
+				</div>
+			</div>
+
+			<!-- Article 8 -->
+			<div class="legal-section reveal">
+				<p class="legal-section-num">Article 8</p>
+				<h2 data-i18n="cgv.art8.title">Propriété intellectuelle</h2>
+				<div data-i18n-html="cgv.art8.content">
+					<p>
+						Les designs, créations et prototypes développés par Items
+						Protect restent la propriété exclusive d'Items Protect, même
+						lorsqu'ils ont été réalisés sur les spécifications du
+						client, sauf accord écrit contraire.
+					</p>
+					<p>
+						Les photographies et visuels des produits ne peuvent être
+						reproduits, exploités ou diffusés sans l'autorisation
+						préalable et écrite d'Items Protect.
+					</p>
+				</div>
+			</div>
+
+			<!-- Article 9 -->
+			<div class="legal-section reveal">
+				<p class="legal-section-num">Article 9</p>
+				<h2 data-i18n="cgv.art9.title">Règlement des litiges et droit applicable</h2>
+				<div data-i18n-html="cgv.art9.content">
+					<p>
+						Les présentes CGV sont soumises au droit français. En cas de
+						litige, le client est invité à contacter Items Protect en
+						premier lieu afin de trouver une solution amiable.
+					</p>
+					<p>
+						Conformément aux articles L.611-1 et suivants du Code de la
+						consommation, le client peut recourir gratuitement à un
+						médiateur de la consommation en cas d'échec de la résolution
+						amiable. La plateforme européenne de règlement en ligne des
+						litiges est accessible à l'adresse :
+						<a
+							href="https://ec.europa.eu/consumers/odr"
+							target="_blank"
+							rel="noopener"
+							>ec.europa.eu/consumers/odr</a
+						>.
+					</p>
+					<p>
+						À défaut de résolution amiable, les tribunaux français
+						seront seuls compétents pour connaître de tout litige
+						relatif à l'interprétation ou à l'exécution des présentes
+						CGV.
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<footer>
+			<div class="footer-grid">
+				<div>
+					<a class="footer-logo" href="index.html">
+						<div class="footer-logo-icon">
+							<img
+								src="assets/icons/shield.svg"
+								width="16"
+								height="16"
+								alt=""
+								style="
+									filter: invert(1) sepia(1) saturate(3)
+										hue-rotate(5deg) brightness(0.8);
+								" />
+						</div>
+						<span class="footer-logo-name">Items Protect</span>
+					</a>
+					<p class="footer-desc" data-i18n="footer.desc">
+						Protections acryliques premium pour collectionneurs
+						passionnés. TCG, figurines, scellés et objets rares,
+						depuis 2022.
+					</p>
+					<div class="footer-socials">
+						<a
+							class="footer-social-chip"
+							href="mailto:contact@itemsprotect.fr" data-i18n="footer.contact.email">
+							📧 Email
+						</a>
+						<a
+							class="footer-social-chip"
+							href="#"
+							onclick="toast({ type: 'info', title: 'Instagram', message: '@itemsprotect' }); return false;" data-i18n="footer.contact.instagram">
+							📸 Instagram
+						</a>
+						<a
+							class="footer-social-chip"
+							href="#"
+							onclick="toast({ type: 'info', title: 'Discord', message: 'Discord Items Protect' }); return false;" data-i18n="footer.contact.discord">
+							💬 Discord
+						</a>
+					</div>
+				</div>
+				<div>
+					<p class="footer-col-title" data-i18n="footer.nav.title">
+						Navigation
+					</p>
+					<ul class="footer-links">
+						<li><a href="index.html#story" data-i18n="footer.nav.histoire">Notre histoire</a></li>
+						<li><a href="products.html" data-i18n="footer.nav.catalogue">Catalogue</a></li>
+						<li><a href="index.html#universes" data-i18n="footer.nav.univers">Univers</a></li>
+						<li><a href="index.html#testi" data-i18n="footer.nav.avis">Avis clients</a></li>
+					</ul>
+				</div>
+				<div>
+					<p
+						class="footer-col-title"
+						data-i18n="footer.products.title">
+						Produits
+					</p>
+					<ul class="footer-links">
+						<li><a href="products.html" data-i18n="footer.products.tcg">Boîtes TCG</a></li>
+						<li><a href="products.html" data-i18n="footer.products.fig">Vitrines figurines</a></li>
+						<li><a href="products.html" data-i18n="footer.products.displays">Protection displays</a></li>
+						<li><a href="contact.html" data-i18n="footer.products.custom">Sur mesure &amp; pro</a></li>
+					</ul>
+				</div>
+				<div>
+					<p
+						class="footer-col-title"
+						data-i18n="footer.contact.title">
+						Contact
+					</p>
+					<ul class="footer-links">
+						<li>
+							<a href="mailto:contact@itemsprotect.fr"
+								 data-i18n="footer.contact.email">📧 Email</a
+							>
+						</li>
+						<li>
+							<a
+								href="#"
+								onclick="
+									toast({
+										type: 'info',
+										title: 'Discord',
+										message:
+											'Items Protect · Rejoignez-nous !',
+									});
+									return false;
+								"
+								 data-i18n="footer.contact.discord">💬 Discord</a
+							>
+						</li>
+						<li>
+							<a
+								href="#"
+								onclick="
+									toast({
+										type: 'info',
+										title: 'Instagram',
+										message: '@itemsprotect',
+									});
+									return false;
+								"
+								 data-i18n="footer.contact.instagram">📸 Instagram</a
+							>
+						</li>
+						<li>
+							<a
+								href="#"
+								onclick="
+									toast({
+										type: 'info',
+										title: 'TikTok',
+										message: '@itemsprotect',
+									});
+									return false;
+								"
+								 data-i18n="footer.contact.tiktok">🎵 TikTok</a
+							>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="footer-bottom">
+				<span class="footer-copy" data-i18n="footer.copy"
+					>© 2025 Items Protect · Tous droits réservés</span
+				>
+				<div class="footer-legal">
+					<a
+						href="mentions-legales.html"
+						data-i18n="footer.legal.mentions"
+						>Mentions légales</a
+					>
+					<a href="cgv.html" data-i18n="footer.legal.cgv">CGV</a>
+					<a
+						href="confidentialite.html"
+						data-i18n="footer.legal.confidentialite"
+						>Confidentialité</a
+					>
+				</div>
+			</div>
+		</footer>
+
+		<script src="scripts/core/i18n.js"></script>
+		<script src="scripts/components/toast.js"></script>
+		<script src="scripts/core/loader.js"></script>
+		<script src="scripts/components/navigation.js"></script>
+		<script src="scripts/utils/scroll.js"></script>
+		<script src="scripts/utils/particles.js"></script>
+		<script src="scripts/components/chatbot.js"></script>
+	</body>
+</html>
