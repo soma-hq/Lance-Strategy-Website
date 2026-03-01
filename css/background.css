@@ -1,0 +1,110 @@
+/**
+ * background.css
+ * Fixed global background layer: radial gradients, grid overlay,
+ * center clash line, rotating speedlines, and particle canvas placeholder.
+ */
+
+/* Fixed background container behind all content */
+#global-bg {
+	position: fixed;
+	inset: 0;
+	z-index: 0;
+	pointer-events: none;
+	overflow: hidden;
+}
+
+/* Base radial color washes */
+#global-bg .bg-base {
+	position: absolute;
+	inset: 0;
+	background:
+		radial-gradient(
+			ellipse 70% 60% at 15% 40%,
+			rgba(249, 115, 22, 0.09) 0%,
+			transparent 60%
+		),
+		radial-gradient(
+			ellipse 70% 60% at 85% 60%,
+			rgba(6, 182, 212, 0.09) 0%,
+			transparent 60%
+		),
+		radial-gradient(
+			ellipse 50% 50% at 50% 100%,
+			rgba(30, 58, 138, 0.1) 0%,
+			transparent 60%
+		),
+		#080c14;
+}
+
+/* Subtle grid overlay */
+#global-bg .bg-grid {
+	position: absolute;
+	inset: 0;
+	background-image:
+		linear-gradient(rgba(255, 255, 255, 0.022) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(255, 255, 255, 0.022) 1px, transparent 1px);
+	background-size: 56px 56px;
+	mask-image: radial-gradient(
+		ellipse 100% 100% at 50% 50%,
+		black,
+		transparent 85%
+	);
+}
+
+/* Vertical center clash line */
+#global-bg .bg-clash {
+	position: absolute;
+	left: 50%;
+	top: 0;
+	bottom: 0;
+	width: 1px;
+	transform: translateX(-50%);
+	background: linear-gradient(
+		180deg,
+		transparent 0%,
+		rgba(255, 255, 255, 0.06) 20%,
+		rgba(255, 255, 255, 0.18) 50%,
+		rgba(255, 255, 255, 0.06) 80%,
+		transparent 100%
+	);
+	filter: blur(0.5px);
+	animation: clashPulse 4s ease-in-out infinite;
+}
+
+@keyframes clashPulse {
+	0%,
+	100% {
+		opacity: 0.4;
+	}
+	50% {
+		opacity: 1;
+	}
+}
+
+/* Rotating conic speed lines */
+#global-bg .bg-speed {
+	position: absolute;
+	inset: 0;
+	background: repeating-conic-gradient(
+		from 0deg at 50% 50%,
+		rgba(255, 255, 255, 0.008) 0deg,
+		rgba(255, 255, 255, 0) 1.5deg,
+		rgba(255, 255, 255, 0) 9deg,
+		rgba(255, 255, 255, 0.008) 10.5deg
+	);
+	animation: speedSpin 80s linear infinite;
+}
+
+@keyframes speedSpin {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+/* Particle canvas - fixed viewport overlay */
+#particleCanvas {
+	position: fixed;
+	inset: 0;
+	z-index: 1;
+	pointer-events: none;
+}
