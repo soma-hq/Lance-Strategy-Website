@@ -1,0 +1,389 @@
+
+/* Floating pill nav — centered, Apple glass */
+nav {
+	position: fixed;
+	top: 26px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: calc(100% - 40px);
+	max-width: 1160px;
+	z-index: 500;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 20px 0 20px;
+	height: 70px;
+	border-radius: 18px;
+	background: rgba(8, 12, 20, 0.62);
+	border: 1px solid rgba(255, 255, 255, 0.12);
+	backdrop-filter: blur(20px) saturate(180%);
+	-webkit-backdrop-filter: blur(20px) saturate(180%);
+	box-shadow:
+		0 4px 24px rgba(0, 0, 0, 0.35),
+		0 1px 0 rgba(255, 255, 255, 0.06),
+		inset 0 1px 0 rgba(255, 255, 255, 0.05);
+	transition:
+		background 0.4s,
+		box-shadow 0.4s,
+		border-color 0.4s;
+}
+
+/* Scrolled state — denser glass */
+nav.scrolled {
+	background: rgba(8, 12, 20, 0.88);
+	border-color: rgba(255, 255, 255, 0.14);
+	box-shadow:
+		0 8px 40px rgba(0, 0, 0, 0.5),
+		0 1px 0 rgba(255, 255, 255, 0.08),
+		inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+/* Logo */
+.nav-logo {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	text-decoration: none;
+	cursor: pointer;
+	flex-shrink: 0;
+}
+
+.nav-logo-icon {
+	width: 38px;
+	height: 38px;
+	border-radius: 10px;
+	background: linear-gradient(135deg, var(--gold), var(--gold-light));
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 18px;
+	box-shadow: 0 2px 14px rgba(201, 168, 76, 0.45);
+	transition:
+		transform var(--t),
+		box-shadow var(--t);
+}
+
+.nav-logo:hover .nav-logo-icon {
+	transform: scale(1.07);
+	box-shadow: 0 4px 22px rgba(201, 168, 76, 0.6);
+}
+
+.nav-logo-text {
+	font-size: 16px;
+	font-weight: 800;
+	color: var(--text);
+	letter-spacing: -0.01em;
+}
+
+/* Primary CTA */
+.nav-cta {
+	display: inline-flex;
+	align-items: center;
+	gap: 7px;
+	padding: 9px 20px;
+	background: var(--gold);
+	color: #0a0c10 !important;
+	font-size: 13.5px;
+	font-weight: 700;
+	letter-spacing: 0.01em;
+	text-decoration: none;
+	border-radius: 10px;
+	transition: background var(--t), transform var(--t) !important;
+}
+
+.nav-cta:hover {
+	background: var(--gold-light) !important;
+	transform: translateY(-1px);
+}
+
+/* Custom select container */
+.nav-center {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}
+
+/* Select wrapper */
+.nav-sel {
+	position: relative;
+}
+
+/* Trigger button */
+.nav-sel-trigger {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	padding: 7px 14px;
+	background: rgba(255, 255, 255, 0.05);
+	border: 1px solid rgba(255, 255, 255, 0.09);
+	border-radius: 10px;
+	color: rgba(255, 255, 255, 0.65);
+	font-family: var(--font);
+	font-size: 13px;
+	font-weight: 600;
+	cursor: pointer;
+	white-space: nowrap;
+	transition: background var(--t), border-color var(--t), color var(--t);
+}
+
+.nav-sel-trigger:hover {
+	background: rgba(255, 255, 255, 0.09);
+	border-color: rgba(255, 255, 255, 0.16);
+	color: var(--text);
+}
+
+/* Gold accent when panel is open */
+.nav-sel.open .nav-sel-trigger {
+	background: rgba(201, 168, 76, 0.08);
+	border-color: rgba(201, 168, 76, 0.3);
+	color: var(--gold-light);
+}
+
+/* Chevron */
+.nav-sel-chevron {
+	width: 11px;
+	height: 11px;
+	opacity: 0.5;
+	flex-shrink: 0;
+	transition: transform var(--t), opacity var(--t);
+}
+
+.nav-sel.open .nav-sel-chevron {
+	transform: rotate(180deg);
+	opacity: 0.9;
+}
+
+/* Dropdown panel */
+.nav-sel-panel {
+	position: absolute;
+	top: calc(100% + 8px);
+	left: 0;
+	min-width: 190px;
+	background: rgba(9, 13, 22, 0.97);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	border-radius: 14px;
+	padding: 6px;
+	box-shadow:
+		0 20px 50px rgba(0, 0, 0, 0.6),
+		0 4px 14px rgba(0, 0, 0, 0.3),
+		inset 0 1px 0 rgba(255, 255, 255, 0.06);
+	backdrop-filter: blur(24px) saturate(160%);
+	-webkit-backdrop-filter: blur(24px) saturate(160%);
+	opacity: 0;
+	pointer-events: none;
+	transform: translateY(-6px) scale(0.97);
+	transform-origin: top left;
+	transition: opacity 0.18s ease, transform 0.18s ease;
+	z-index: 600;
+}
+
+/* Right-aligned panel for lang + social */
+.nav-sel-panel--right {
+	left: auto;
+	right: 0;
+	transform-origin: top right;
+}
+
+.nav-sel.open .nav-sel-panel {
+	opacity: 1;
+	pointer-events: all;
+	transform: translateY(0) scale(1);
+}
+
+/* Panel section label */
+.nav-sel-label {
+	padding: 6px 11px 3px;
+	font-size: 9.5px;
+	font-weight: 700;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	color: rgba(255, 255, 255, 0.25);
+}
+
+/* Panel separator */
+.nav-sel-sep {
+	height: 1px;
+	background: rgba(255, 255, 255, 0.07);
+	margin: 5px 4px;
+}
+
+/* Panel items */
+.nav-sel-item {
+	display: flex;
+	align-items: center;
+	gap: 9px;
+	width: 100%;
+	padding: 8px 11px;
+	border-radius: 8px;
+	font-family: var(--font);
+	font-size: 13.5px;
+	font-weight: 500;
+	color: rgba(255, 255, 255, 0.65);
+	text-decoration: none;
+	background: none;
+	border: none;
+	cursor: pointer;
+	text-align: left;
+	transition: background var(--t), color var(--t), padding-left var(--t);
+}
+
+.nav-sel-item:hover {
+	background: rgba(255, 255, 255, 0.07);
+	color: var(--text);
+	padding-left: 14px;
+}
+
+/* Active item (e.g. current page in nav panel) */
+.nav-sel-item--active {
+	color: var(--gold-light) !important;
+	background: rgba(201, 168, 76, 0.07);
+}
+
+.nav-sel-item--active:hover {
+	background: rgba(201, 168, 76, 0.12);
+	padding-left: 11px;
+}
+
+/* Item dot accent */
+.nav-sel-dot {
+	width: 5px;
+	height: 5px;
+	border-radius: 50%;
+	background: rgba(255, 255, 255, 0.2);
+	flex-shrink: 0;
+	transition: background var(--t);
+}
+
+.nav-sel-item:hover .nav-sel-dot,
+.nav-sel-item--active .nav-sel-dot {
+	background: var(--gold);
+}
+
+/* Lang trigger: tighter padding */
+.nav-sel-trigger--lang {
+	padding: 7px 11px;
+	gap: 5px;
+}
+
+.nav-sel-langflag {
+	font-size: 15px;
+	line-height: 1;
+}
+
+.nav-sel-langname {
+	font-size: 12px;
+	font-weight: 700;
+	letter-spacing: 0.02em;
+}
+
+/* Hide legacy nav elements */
+.nav-links,
+.nav-lang {
+	display: none !important;
+}
+
+/* Hamburger */
+.nav-hamburger {
+	display: none;
+	flex-direction: column;
+	gap: 5px;
+	background: none;
+	border: none;
+	cursor: pointer;
+	padding: 6px;
+	border-radius: 8px;
+	transition: background var(--t);
+}
+
+.nav-hamburger:hover {
+	background: rgba(255, 255, 255, 0.07);
+}
+
+.nav-hamburger span {
+	display: block;
+	width: 22px;
+	height: 2px;
+	background: var(--text-muted);
+	border-radius: 2px;
+	transition: var(--t);
+}
+
+/* Mobile slide-down menu */
+.mobile-menu {
+	position: fixed;
+	top: 104px;
+	left: 50%;
+	width: calc(100% - 40px);
+	max-width: 1160px;
+	z-index: 490;
+	background: rgba(8, 12, 20, 0.97);
+	backdrop-filter: blur(24px);
+	-webkit-backdrop-filter: blur(24px);
+	border: 1px solid rgba(255, 255, 255, 0.08);
+	border-radius: 16px;
+	padding: 12px;
+	transform: translateX(-50%) translateY(-12px);
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity var(--t), transform var(--t);
+}
+
+.mobile-menu.open {
+	opacity: 1;
+	pointer-events: all;
+	transform: translateX(-50%) translateY(0);
+}
+
+.mobile-menu a {
+	display: block;
+	padding: 12px 16px;
+	font-size: 15px;
+	color: var(--text-muted);
+	text-decoration: none;
+	border-radius: 10px;
+	transition: background var(--t);
+}
+
+.mobile-menu a:hover {
+	background: rgba(255, 255, 255, 0.05);
+	color: var(--text);
+}
+
+/* Mobile language row */
+.mobile-lang {
+	display: flex;
+	gap: 8px;
+	padding: 10px 16px 6px;
+	border-top: 1px solid rgba(255, 255, 255, 0.06);
+	margin-top: 6px;
+}
+
+.lang-btn {
+	background: none;
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	cursor: pointer;
+	font-size: 11px;
+	font-weight: 700;
+	letter-spacing: 0.04em;
+	color: rgba(255, 255, 255, 0.4);
+	padding: 5px 10px;
+	border-radius: 6px;
+	font-family: var(--font);
+	transition: color var(--t), background var(--t), border-color var(--t);
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	white-space: nowrap;
+}
+
+.lang-btn.lang-btn--active {
+	color: var(--gold-light);
+	border-color: rgba(201, 168, 76, 0.3);
+	background: rgba(201, 168, 76, 0.07);
+}
+
+.lang-btn:hover:not(.lang-btn--active) {
+	color: var(--text-muted);
+	border-color: rgba(255, 255, 255, 0.18);
+	background: rgba(255, 255, 255, 0.05);
+}

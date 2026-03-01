@@ -1,0 +1,368 @@
+
+/* Regular product card */
+.pcard {
+	border-radius: 18px;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	border: 1px solid var(--border);
+	background: rgba(255, 255, 255, 0.025);
+	box-shadow: var(--shadow-card);
+	transition: all 0.3s ease;
+}
+
+.pcard:hover {
+	background: rgba(255, 255, 255, 0.05);
+	border-color: rgba(201, 168, 76, 0.2);
+	box-shadow: var(--shadow-card-hover);
+	transform: translateY(-5px);
+}
+
+/* Product card visual area */
+.pcard-visual {
+	height: 170px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 62px;
+	position: relative;
+	overflow: hidden;
+}
+
+/* Visual background variants */
+.pv-gold {
+	background: radial-gradient(
+		ellipse 80% 80% at 50% 80%,
+		rgba(201, 168, 76, 0.18) 0%,
+		transparent 70%
+	);
+}
+.pv-blue {
+	background: radial-gradient(
+		ellipse 80% 80% at 50% 80%,
+		rgba(37, 99, 235, 0.18) 0%,
+		transparent 70%
+	);
+}
+.pv-fire {
+	background: radial-gradient(
+		ellipse 80% 80% at 50% 80%,
+		rgba(249, 115, 22, 0.18) 0%,
+		transparent 70%
+	);
+}
+.pv-water {
+	background: radial-gradient(
+		ellipse 80% 80% at 50% 80%,
+		rgba(6, 182, 212, 0.18) 0%,
+		transparent 70%
+	);
+}
+.pv-dark {
+	background: radial-gradient(
+		ellipse 80% 80% at 50% 80%,
+		rgba(148, 163, 184, 0.1) 0%,
+		transparent 70%
+	);
+}
+.pv-purple {
+	background: radial-gradient(
+		ellipse 80% 80% at 50% 80%,
+		rgba(168, 85, 247, 0.18) 0%,
+		transparent 70%
+	);
+}
+
+/* 3D folded corner ribbon — top-right of .pcard-visual */
+.pcard-ribbon {
+	position: absolute;
+	top: 22px;
+	right: -32px;
+	width: 132px;
+	padding: 7px 0 6px;
+	text-align: center;
+	font-size: 10px;
+	font-weight: 800;
+	letter-spacing: 0.07em;
+	text-transform: uppercase;
+	transform: rotate(45deg);
+	z-index: 2;
+	pointer-events: none;
+	box-shadow:
+		0 3px 0 rgba(0, 0, 0, 0.25),
+		0 6px 18px rgba(0, 0, 0, 0.4);
+}
+
+/* Ribbon color variants */
+.pr-hot {
+	background: #dc2626;
+	color: #fff;
+}
+.pr-new {
+	background: #16a34a;
+	color: #fff;
+}
+.pr-lim {
+	background: var(--gold);
+	color: #0a0c10;
+}
+.pr-pro {
+	background: #2563eb;
+	color: #fff;
+}
+.pr-coll {
+	background: #7c3aed;
+	color: #fff;
+}
+
+/* Card body */
+.pcard-body {
+	padding: 20px;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+}
+
+.pcard-cat {
+	font-size: 10px;
+	font-weight: 700;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--text-dim);
+	margin-bottom: 6px;
+}
+
+.pcard-name {
+	font-size: 15px;
+	font-weight: 800;
+	color: var(--text);
+	margin-bottom: 6px;
+	line-height: 1.3;
+}
+
+.pcard-desc {
+	font-size: 13px;
+	color: var(--text-muted);
+	line-height: 1.6;
+	flex: 1;
+	margin-bottom: 14px;
+}
+
+/* Tag pills */
+.pcard-tags {
+	display: flex;
+	gap: 6px;
+	flex-wrap: wrap;
+	margin-bottom: 14px;
+}
+
+.pcard-tag {
+	font-size: 11px;
+	font-weight: 600;
+	padding: 3px 9px;
+	border-radius: 6px;
+	background: rgba(255, 255, 255, 0.05);
+	color: var(--text-muted);
+	border: 1px solid var(--border);
+}
+
+/* Card footer with price and action */
+.pcard-footer {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-top: 14px;
+	border-top: 1px solid var(--border);
+}
+
+.pcard-price {
+	font-size: 19px;
+	font-weight: 900;
+	color: var(--text);
+}
+
+.pcard-price-sub {
+	font-size: 11px;
+	color: var(--text-dim);
+	font-weight: 400;
+}
+
+/* Featured product card (wide, two columns) */
+.pcard-featured {
+	grid-column: 1 / -1;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	border-radius: 22px;
+	overflow: hidden;
+	border: 1px solid var(--border-gold);
+	box-shadow: 0 8px 40px rgba(0, 0, 0, 0.45);
+	transition: all 0.3s ease;
+}
+
+.pcard-featured:hover {
+	box-shadow: 0 24px 70px rgba(0, 0, 0, 0.55);
+	transform: translateY(-3px);
+}
+
+/* Featured visual pane */
+.pcf-visual {
+	position: relative;
+	min-height: 340px;
+	background: radial-gradient(
+		ellipse 90% 90% at 40% 70%,
+		rgba(201, 168, 76, 0.12) 0%,
+		rgba(37, 99, 235, 0.07) 60%,
+		transparent 100%
+	);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+}
+
+.pcf-visual::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background-image:
+		linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+	background-size: 40px 40px;
+}
+
+/* Pulsing emoji in featured card */
+.pcf-emoji {
+	font-size: 90px;
+	position: relative;
+	z-index: 1;
+	animation: cardPulse 4s ease-in-out infinite alternate;
+}
+
+@keyframes cardPulse {
+	from {
+		filter: drop-shadow(0 0 8px rgba(255, 200, 50, 0.3));
+		transform: scale(0.96);
+	}
+	to {
+		filter: drop-shadow(0 0 22px rgba(255, 200, 50, 0.75));
+		transform: scale(1.04);
+	}
+}
+
+/* Best-seller badge */
+.pcf-badge {
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	background: var(--gold);
+	color: #0a0c10;
+	font-size: 10px;
+	font-weight: 800;
+	padding: 5px 13px;
+	border-radius: 99px;
+	letter-spacing: 0.07em;
+	text-transform: uppercase;
+	box-shadow: 0 3px 12px rgba(201, 168, 76, 0.5);
+	z-index: 2;
+}
+
+/* Featured content pane */
+.pcf-content {
+	padding: 44px 40px;
+	background: rgba(255, 255, 255, 0.025);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.pcf-tag {
+	font-size: 11px;
+	font-weight: 700;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--gold-light);
+	margin-bottom: 14px;
+}
+
+.pcf-title {
+	font-size: 26px;
+	font-weight: 800;
+	color: var(--text);
+	letter-spacing: -0.02em;
+	line-height: 1.2;
+	margin-bottom: 12px;
+}
+
+.pcf-desc {
+	font-size: 14px;
+	color: var(--text-muted);
+	line-height: 1.7;
+	margin-bottom: 24px;
+}
+
+/* Spec list items */
+.pcf-specs {
+	display: flex;
+	flex-direction: column;
+	gap: 9px;
+	margin-bottom: 28px;
+}
+
+.pcf-spec {
+	display: flex;
+	align-items: center;
+	gap: 9px;
+	font-size: 13px;
+	color: var(--text-muted);
+}
+
+.pcf-spec::before {
+	content: "";
+	width: 5px;
+	height: 5px;
+	border-radius: 50%;
+	background: var(--gold);
+	flex-shrink: 0;
+	box-shadow: 0 0 6px rgba(201, 168, 76, 0.5);
+}
+
+/* Action buttons row */
+.pcf-actions {
+	display: flex;
+	gap: 12px;
+}
+
+/* Universe scroll card */
+.univ-card {
+	display: flex;
+	align-items: center;
+	gap: 13px;
+	padding: 14px 22px;
+	background: rgba(255, 255, 255, 0.035);
+	border: 1px solid var(--border);
+	border-radius: 14px;
+	white-space: nowrap;
+	flex-shrink: 0;
+	transition: all var(--t);
+	cursor: default;
+}
+
+.univ-card:hover {
+	border-color: var(--border-gold);
+	background: rgba(201, 168, 76, 0.06);
+	transform: translateY(-2px);
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.uc-emoji {
+	font-size: 26px;
+}
+.uc-name {
+	font-size: 13px;
+	font-weight: 700;
+	color: var(--text);
+}
+.uc-sub {
+	font-size: 11px;
+	color: var(--text-muted);
+}

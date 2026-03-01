@@ -1,0 +1,69 @@
+/* Primary gold CTA */
+.btn-primary-gold {
+	display: inline-flex;
+	align-items: center;
+	gap: 9px;
+	padding: 14px 28px;
+	background: var(--gold);
+	color: #0a0c10;
+	font-size: 15px;
+	font-weight: 700;
+	border-radius: 12px;
+	text-decoration: none;
+	border: none;
+	cursor: pointer;
+	font-family: var(--font);
+	transition: all 0.22s ease;
+}
+
+.btn-primary-gold:hover {
+	background: var(--gold-light);
+	transform: translateY(-3px);
+}
+
+/* Ghost / outline button */
+.btn-ghost-dark {
+	display: inline-flex;
+	align-items: center;
+	gap: 9px;
+	padding: 14px 28px;
+	background: rgba(255, 255, 255, 0.06);
+	border: 1.5px solid rgba(255, 255, 255, 0.14);
+	color: var(--text);
+	font-size: 15px;
+	font-weight: 600;
+	border-radius: 12px;
+	text-decoration: none;
+	cursor: pointer;
+	font-family: var(--font);
+	backdrop-filter: blur(4px);
+	transition: all 0.22s ease;
+}
+
+.btn-ghost-dark:hover {
+	background: rgba(255, 255, 255, 0.1);
+	border-color: rgba(255, 255, 255, 0.3);
+	transform: translateY(-2px);
+}
+
+/* Blue add / order button */
+.btn-add {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	padding: 9px 16px;
+	background: var(--blue-bright);
+	color: white;
+	font-size: 13px;
+	font-weight: 700;
+	border-radius: 9px;
+	border: none;
+	cursor: pointer;
+	font-family: var(--font);
+	transition: all var(--t);
+}
+
+.btn-add:hover {
+	background: #1d4ed8;
+	transform: scale(1.05);
+}
