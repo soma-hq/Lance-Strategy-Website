@@ -1,0 +1,1249 @@
+<!doctype html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>
+			Catalogue Complet · Items Protect · Protections Acryliques Premium
+		</title>
+
+		<!-- Google Fonts: Inter -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+			rel="stylesheet" />
+
+		<!-- Base: reset, variables, body -->
+		<link rel="stylesheet" href="css/base.css" />
+
+		<!-- Background layers -->
+		<link rel="stylesheet" href="css/background.css" />
+
+		<!-- Shared layout primitives -->
+		<link rel="stylesheet" href="css/layout.css" />
+
+		<!-- Components -->
+		<link rel="stylesheet" href="css/components/loader.css" />
+		<link rel="stylesheet" href="css/components/navbar.css" />
+		<link rel="stylesheet" href="css/components/buttons.css" />
+		<link rel="stylesheet" href="css/components/cards.css" />
+		<link rel="stylesheet" href="css/components/toast.css" />
+		<link rel="stylesheet" href="css/components/chatbot.css" />
+
+		<!-- Sections -->
+		<link rel="stylesheet" href="css/sections/hero.css" />
+		<link rel="stylesheet" href="css/sections/story.css" />
+		<link rel="stylesheet" href="css/sections/why.css" />
+		<link rel="stylesheet" href="css/sections/products.css" />
+		<link rel="stylesheet" href="css/sections/universes.css" />
+		<link rel="stylesheet" href="css/sections/process.css" />
+		<link rel="stylesheet" href="css/sections/testimonials.css" />
+		<link rel="stylesheet" href="css/sections/manifesto.css" />
+		<link rel="stylesheet" href="css/sections/cta.css" />
+		<link rel="stylesheet" href="css/sections/footer.css" />
+
+		<!-- Page-specific: products catalogue page -->
+		<link rel="stylesheet" href="css/sections/products-page.css" />
+
+		<!-- Responsive breakpoints (loaded last) -->
+		<link rel="stylesheet" href="css/responsive.css" />
+	</head>
+	<body>
+		<!-- ─── Fixed global background ─────────────────────────── -->
+		<div id="global-bg">
+			<div class="bg-base"></div>
+			<div class="bg-grid"></div>
+			<div class="bg-clash"></div>
+			<div class="bg-speed"></div>
+		</div>
+
+		<!-- ─── Fixed particle canvas ────────────────────────────── -->
+		<canvas id="particleCanvas"></canvas>
+
+		<!-- ─── Page loader ──────────────────────────────────────── -->
+		<div id="loader">
+			<div class="loader-shield">🛡️</div>
+			<div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+			<p class="loader-label" data-i18n="loader.label">Items Protect</p>
+		</div>
+
+		<!-- ─── Toast notification stack ─────────────────────────── -->
+		<div class="toast-stack" id="toastStack"></div>
+
+		<!-- ─── Navigation bar ───────────────────────────────────── -->
+		<nav id="navbar">
+			<a
+				class="nav-logo"
+				href="index.html"
+				data-i18n-aria="nav.logo.aria">
+				<div class="nav-logo-icon">
+					<img
+						src="assets/icons/shield.svg"
+						alt=""
+						style="width:22px;height:22px;filter:brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(5deg);" />
+				</div>
+				<span class="nav-logo-text">Items Protect</span>
+			</a>
+
+			<div class="nav-center">
+				<!-- Navigation select -->
+				<div class="nav-sel" id="navSel">
+					<button class="nav-sel-trigger" id="navSelTrigger" type="button">
+						<svg style="width:14px;height:14px;opacity:.55;flex-shrink:0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+						<span data-i18n="nav.menu.label">Navigation</span>
+						<svg class="nav-sel-chevron" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 4.5l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+					</button>
+					<div class="nav-sel-panel" id="navSelPanel">
+						<a class="nav-sel-item" href="index.html#story" data-i18n="nav.histoire">
+							<span class="nav-sel-dot"></span>Notre histoire
+						</a>
+						<a class="nav-sel-item nav-sel-item--active" href="products.html" data-i18n="nav.catalogue">
+							<span class="nav-sel-dot"></span>Catalogue
+						</a>
+						<a class="nav-sel-item" href="index.html#universes" data-i18n="nav.univers">
+							<span class="nav-sel-dot"></span>Univers
+						</a>
+						<a class="nav-sel-item" href="index.html#testi" data-i18n="nav.avis">
+							<span class="nav-sel-dot"></span>Avis
+						</a>
+						<a class="nav-sel-item" href="index.html#faq" data-i18n="nav.faq">
+							<span class="nav-sel-dot"></span>FAQ
+						</a>
+					</div>
+				</div>
+
+				<!-- Social networks select -->
+				<div class="nav-sel" id="socialSel">
+					<button class="nav-sel-trigger" id="socialSelTrigger" type="button">
+						<svg style="width:14px;height:14px;opacity:.55;flex-shrink:0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+						<span data-i18n="nav.social.label">Réseaux</span>
+						<svg class="nav-sel-chevron" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 4.5l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+					</button>
+					<div class="nav-sel-panel" id="socialSelPanel">
+						<div class="nav-sel-label" data-i18n="nav.social.find">Nous retrouver</div>
+						<a class="nav-sel-item" href="mailto:contact@itemsprotect.fr">
+							<span class="nav-sel-dot"></span>Email
+						</a>
+						<a class="nav-sel-item" href="#" onclick="toast({ type: 'info', title: 'Instagram', message: '@ItemsProtect' }); return false;">
+							<span class="nav-sel-dot"></span>Instagram
+						</a>
+						<a class="nav-sel-item" href="#" onclick="toast({ type: 'info', title: 'Discord', message: 'Serveur Items Protect' }); return false;">
+							<span class="nav-sel-dot"></span>Discord
+						</a>
+					</div>
+				</div>
+
+				<!-- Language select -->
+				<div class="nav-sel" id="langSel">
+					<button class="nav-sel-trigger nav-sel-trigger--lang" id="langSelTrigger" type="button">
+						<span class="nav-sel-langflag" id="navLangFlag">🇫🇷</span>
+						<span class="nav-sel-langname" id="navLangCode">Français</span>
+						<svg class="nav-sel-chevron" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 4.5l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+					</button>
+					<div class="nav-sel-panel nav-sel-panel--right" id="langSelPanel">
+						<div class="nav-sel-label" data-i18n="nav.lang.label">Langue</div>
+						<button class="nav-sel-item nav-sel-item--active lang-btn lang-btn--active" data-lang="fr" type="button">
+							<span>🇫🇷</span> Français
+						</button>
+						<button class="nav-sel-item lang-btn" data-lang="en" type="button">
+							<span>🇬🇧</span> English
+						</button>
+						<button class="nav-sel-item lang-btn" data-lang="es" type="button">
+							<span>🇪🇸</span> Español
+						</button>
+						<button class="nav-sel-item lang-btn" data-lang="ja" type="button">
+							<span>🇯🇵</span> 日本語
+						</button>
+						<button class="nav-sel-item lang-btn" data-lang="zh" type="button">
+							<span>🇨🇳</span> 中文
+						</button>
+					</div>
+				</div>
+			</div>
+
+			<a class="nav-cta" href="contact.html" data-i18n="nav.commander">Commander ✦</a>
+			<button class="nav-hamburger" id="navHam" data-i18n-aria="nav.menu.aria" aria-label="Menu">
+				<span></span><span></span><span></span>
+			</button>
+		</nav>
+
+		<!-- ─── Mobile navigation menu ───────────────────────────── -->
+		<div class="mobile-menu" id="mobileMenu">
+			<a
+				href="index.html#story"
+				onclick="closeMob()"
+				data-i18n="nav.histoire"
+				>Notre histoire</a
+			>
+			<a
+				href="products.html"
+				onclick="closeMob()"
+				style="color: var(--gold-light); font-weight: 800"
+				data-i18n="nav.catalogue"
+				>Catalogue →</a
+			>
+			<a
+				href="index.html#universes"
+				onclick="closeMob()"
+				data-i18n="nav.univers"
+				>Univers TCG</a
+			>
+			<a href="index.html#testi" onclick="closeMob()" data-i18n="nav.avis"
+				>Avis clients</a
+			>
+			<a href="index.html#faq" onclick="closeMob()" data-i18n="nav.faq"
+				>FAQ</a
+			>
+			<a
+				href="contact.html"
+				onclick="closeMob()"
+				style="color: var(--gold-light); font-weight: 800"
+				data-i18n="nav.commander"
+				>Commander →</a
+			>
+			<div class="mobile-lang">
+				<button class="lang-btn lang-btn--active" data-lang="fr">
+					<span class="lang-flag">🇫🇷</span> FR
+				</button>
+				<button class="lang-btn" data-lang="en">
+					<span class="lang-flag">🇬🇧</span> EN
+				</button>
+				<button class="lang-btn" data-lang="es">
+					<span class="lang-flag">🇪🇸</span> ES
+				</button>
+				<button class="lang-btn" data-lang="ja">
+					<span class="lang-flag">🇯🇵</span> JA
+				</button>
+				<button class="lang-btn" data-lang="zh">
+					<span class="lang-flag">🇨🇳</span> ZH
+				</button>
+			</div>
+		</div>
+
+		<!-- ─── Page Hero Banner ──────────────────────────────────── -->
+		<section class="products-page-hero">
+			<div class="products-hero-inner">
+				<!-- Eyebrow label -->
+				<div class="products-hero-eyebrow">
+					<span class="products-hero-eyebrow-dot"></span>
+					<span data-i18n="products.page.eyebrow"
+						>Catalogue complet</span
+					>
+				</div>
+
+				<!-- Main title -->
+				<h1 class="products-hero-title" data-i18n="products.page.title">
+					Notre Catalogue Complet
+				</h1>
+
+				<!-- Lead description -->
+				<p class="products-hero-desc" data-i18n="products.page.desc">
+					Découvrez l'ensemble de notre gamme de protections
+					acryliques premium, pour TCG, figurines, scellés et
+					commandes sur mesure. Des matériaux irréprochables, des
+					finitions pensées par des collectionneurs.
+				</p>
+
+				<!-- Product count badge -->
+				<div
+					class="products-count-badge"
+					data-i18n="products.page.badge">
+					12 références disponibles
+				</div>
+			</div>
+		</section>
+
+		<div class="section-divider"></div>
+
+		<!-- ─── Catalogue Products Section ───────────────────────── -->
+		<section id="products" class="ppage-section-wrap">
+			<div class="section-inner">
+				<!-- Section header -->
+				<div class="ppage-products-header">
+					<div class="eyebrow reveal" data-i18n="products.eyebrow">
+						Catalogue
+					</div>
+					<h2 class="section-title reveal" data-i18n="products.title">
+						Chaque collection a<br />sa <em>protection idéale</em>
+					</h2>
+					<p class="section-lead reveal" data-i18n="products.lead">
+						Des dimensions exactes, des matériaux sélectionnés avec
+						soin et des finitions qui font la différence au premier
+						regard.
+					</p>
+				</div>
+
+				<!-- Filter tabs -->
+				<div class="products-tabs reveal">
+					<button
+						class="tab-btn active"
+						onclick="filterProd(this, 'all')">
+						🌟 <span data-i18n="products.tab.all">Tout voir</span>
+					</button>
+					<button class="tab-btn" onclick="filterProd(this, 'tcg')">
+						🃏
+						<span data-i18n="products.tab.tcg">TCG / Cartes</span>
+					</button>
+					<button class="tab-btn" onclick="filterProd(this, 'fig')">
+						🏺 <span data-i18n="products.tab.fig">Figurines</span>
+					</button>
+					<button class="tab-btn" onclick="filterProd(this, 'scl')">
+						📦 <span data-i18n="products.tab.scl">Scellés</span>
+					</button>
+					<button class="tab-btn" onclick="filterProd(this, 'cus')">
+						✨ <span data-i18n="products.tab.cus">Sur mesure</span>
+					</button>
+				</div>
+
+				<!-- ── Product grid: 12 cards ──────────────────────── -->
+				<div class="products-grid" id="prodGrid">
+					<!-- ======= TCG CARDS ======= -->
+
+					<!-- 1. Boîte Slim Booster Standard -->
+					<div
+						class="pcard reveal"
+						data-cat="tcg"
+						style="transition-delay: 0.04s">
+						<div class="pcard-visual pv-gold">
+							🃏<span class="pcard-ribbon pr-hot" data-i18n="products.slim.badge">Best-seller</span>
+						</div>
+						<div class="pcard-body">
+							<div class="pcard-cat" data-i18n="products.slim.cat">TCG · Booster Standard</div>
+							<div class="pcard-name" data-i18n-html="products.slim.name">
+								Boîte Slim Booster Standard
+							</div>
+							<div class="pcard-desc" data-i18n="products.slim.desc">
+								La référence pour protéger vos boosters Pokémon,
+								Yu-Gi-Oh! et Magic. Acrylique 3mm, fermeture
+								magnétique, dimensions universelles booster
+								standard.
+							</div>
+							<div class="pcard-tags">
+								<span class="pcard-tag" data-i18n="products.slim.tag1">Magnétique</span
+								><span class="pcard-tag" data-i18n="products.slim.tag2">3mm</span
+								><span class="pcard-tag" data-i18n="products.slim.tag3">Universal</span>
+							</div>
+							<div class="pcard-footer">
+								<div>
+									<div class="pcard-price" data-i18n="products.slim.price">8,90€</div>
+									<div class="pcard-price-sub" data-i18n="products.slim.sub">
+										TTC · Best-seller
+									</div>
+								</div>
+								<button
+									class="btn-add"
+									onclick="
+										toast({
+											type: 'info',
+											title: 'Commander',
+											message:
+												'Contactez-nous pour cette référence !',
+										})
+									">
+									<svg
+										width="14"
+										height="14"
+										viewBox="0 0 24 24"
+										fill="none"
+										stroke="currentColor"
+										stroke-width="2"
+										stroke-linecap="round"
+										stroke-linejoin="round">
+										<circle cx="8" cy="21" r="1" />
+										<circle cx="19" cy="21" r="1" />
+										<path
+											d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
+									</svg>
+									<span data-i18n="products.cmd.btn"
+										>Commander</span
+									>
+								</button>
+							</div>
+						</div>
+					</div>
+
+					<!-- 2. Vitrine ETB Pokémon -->
+					<div
+						class="pcard reveal"
+						data-cat="tcg"
+						style="transition-delay: 0.08s">
+						<div class="pcard-visual pv-blue">
+							🎴<span class="pcard-ribbon pr-new" data-i18n="products.etb.badge">Nouveau</span>
+						</div>
+						<div class="pcard-body">
+							<div class="pcard-cat" data-i18n="products.etb.cat">TCG · Elite Trainer Box</div>
+							<div class="pcard-name" data-i18n="products.etb.name">Vitrine ETB Pokémon</div>
+							<div class="pcard-desc" data-i18n="products.etb.desc">
+								Sur-mesure pour l'Elite Trainer Box Pokémon.
+								Support interne inclus, façade anti-UV,
+								assemblage sans outil en deux minutes.
+							</div>
+							<div class="pcard-tags">
+								<span class="pcard-tag" data-i18n="products.etb.tag1">Magnétique</span
+								><span class="pcard-tag" data-i18n="products.etb.tag2">Anti-UV</span
+								><span class="pcard-tag" data-i18n="products.etb.tag3">Sur mesure</span>
+							</div>
+							<div class="pcard-footer">
+								<div>
+									<div class="pcard-price" data-i18n="products.etb.price">24,90€</div>
+									<div class="pcard-price-sub" data-i18n="products.etb.sub">
+										TTC · Stock limité
+									</div>
+								</div>
+								<button
+									class="btn-add"
+									onclick="
+										toast({
+											type: 'info',
+											title: 'Commander',
+											message:
+												'Contactez-nous pour cette référence !',
+										})
+									">
+									<svg
+										width="14"
+										height="14"
+										viewBox="0 0 24 24"
+										fill="none"
+										stroke="currentColor"
+										stroke-width="2"
+										stroke-linecap="round"
+										stroke-linejoin="round">
+										<circle cx="8" cy="21" r="1" />
+										<circle cx="19" cy="21" r="1" />
+										<path
+											d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
+									</svg>
+									<span data-i18n="products.cmd.btn"
+										>Commander</span
+									>
+								</button>
+							</div>
+						</div>
+					</div>
+
+					<!-- 3. Boîte Collector One Piece CS -->
+					<div
+						class="pcard reveal"
+						data-cat="tcg"
+						style="transition-delay: 0.12s">
+						<div class="pcard-visual pv-dark">
+							🏴‍☠️<span class="pcard-ribbon pr-coll" data-i18n="products.opcs.badge">Collection</span>
+						</div>
+						<div class="pcard-body">
+							<div class="pcard-cat" data-i18n="products.opcs.cat">TCG · One Piece</div>
+							<div class="pcard-name" data-i18n="products.opcs.name">
+								Boîte Collector One Piece CS
+							</div>
+							<div class="pcard-desc" data-i18n="products.opcs.desc">
+								Dimensions officielles One Piece Treasure Cup.
+								Assemblage rapide, renfort aux 4 coins,
+								fermeture snap sécurisée.
+							</div>
+							<div class="pcard-tags">
+								<span class="pcard-tag" data-i18n="products.opcs.tag1">Treasure Cup</span
+								><span class="pcard-tag" data-i18n="products.opcs.tag2">Snap secure</span
+								><span class="pcard-tag" data-i18n="products.opcs.tag3">Renforcé</span>
+							</div>
+							<div class="pcard-footer">
+								<div>
+									<div class="pcard-price" data-i18n="products.opcs.price">29,00€</div>
+									<div class="pcard-price-sub" data-i18n="products.opcs.sub">
+										TTC · Promo –15%
+									</div>
+								</div>
+								<button
+									class="btn-add"
+									onclick="
+										toast({
+											type: 'info',
+											title: 'Commander',
+											message:
+												'Contactez-nous pour cette référence !',
+										})
+									">
+									<svg
+										width="14"
+										height="14"
+										viewBox="0 0 24 24"
+										fill="none"
+										stroke="currentColor"
+										stroke-width="2"
+										stroke-linecap="round"
+										stroke-linejoin="round">
+										<circle cx="8" cy="21" r="1" />
+										<circle cx="19" cy="21" r="1" />
+										<path
+											d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
+									</svg>
+									<span data-i18n="products.cmd.btn"
+										>Commander</span
+									>
+								</button>
+							</div>
+						</div>
+					</div>
+
+					<!-- 4. Boîte Booster Box Pokémon -->
+					<div
+						class="pcard reveal"
+						data-cat="tcg"
+						style="transition-delay: 0.06s">
+						<div class="pcard-visual pv-gold">
+							⚡<span class="pcard-ribbon pr-lim" data-i18n="products.bbox.badge">Limité</span>
+						</div>
+						<div class="pcard-body">
+							<div class="pcard-cat" data-i18n="products.bbox.cat">TCG · Booster Box</div>
+							<div class="pcard-name" data-i18n="products.bbox.name">
+								Boîte Booster Box Pokémon
+							</div>
+							<div class="pcard-desc" data-i18n="products.bbox.desc">
+								Protection XXL pour votre Booster Box Pokémon
+								complète. Format grand format, fermeture
+								magnétique renforcée, acrylique épais 3mm.
+							</div>
+							<div class="pcard-tags">
+								<span class="pcard-tag" data-i18n="products.bbox.tag1">Booster Box</span
+								><span class="pcard-tag" data-i18n="products.bbox.tag2">Magnétique</span
+								><span class="pcard-tag" data-i18n="products.bbox.tag3">Format XL</span>
+							</div>
+							<div class="pcard-footer">
+								<div>
+									<div class="pcard-price" data-i18n="products.bbox.price">44,90€</div>
+									<div class="pcard-price-sub" data-i18n="products.bbox.sub">
+										TTC · Édition limitée
+									</div>
+								</div>
+								<button
+									class="btn-add"
+									onclick="
+										toast({
+											type: 'info',
+											title: 'Commander',
+											message:
+												'Contactez-nous pour cette référence !',
+										})
+									">
+									<svg
+										width="14"
+										height="14"
+										viewBox="0 0 24 24"
+										fill="none"
+										stroke="currentColor"
+										stroke-width="2"
+										stroke-linecap="round"
+										stroke-linejoin="round">
+										<circle cx="8" cy="21" r="1" />
+										<circle cx="19" cy="21" r="1" />
+										<path
+											d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
+									</svg>
+									<span data-i18n="products.cmd.btn"
+										>Commander</span
+									>
+								</button>
+							</div>
+						</div>
+					</div>
+
+					<!-- 5. Protection Deck Box Slim -->
+					<div
+						class="pcard reveal"
+						data-cat="tcg"
+						style="transition-delay: 0.1s">
+						<div class="pcard-visual pv-blue">🗃️</div>
+						<div class="pcard-body">
+							<div class="pcard-cat" data-i18n="products.dbox.cat">TCG · Deck Box</div>
+							<div class="pcard-name" data-i18n="products.dbox.name">
+								Protection Deck Box Slim
+							</div>
+							<div class="pcard-desc" data-i18n="products.dbox.desc">
+								Idéal pour exposer et protéger votre deck
+								complet de 60 cartes. Profil slim, fermeture
+								magnétique discrète, bords polis.
+							</div>
+							<div class="pcard-tags">
+								<span class="pcard-tag" data-i18n="products.dbox.tag1">60 cartes</span
+								><span class="pcard-tag" data-i18n="products.dbox.tag2">Magnétique</span
+								><span class="pcard-tag" data-i18n="products.dbox.tag3">Slim</span>
+							</div>
+							<div class="pcard-footer">
+								<div>
+									<div class="pcard-price" data-i18n="products.dbox.price">12,90€</div>
+									<div class="pcard-price-sub" data-i18n="products.dbox.sub">
+										TTC · En stock
+									</div>
+								</div>
+								<button
+									class="btn-add"
+									onclick="
+										toast({
+											type: 'info',
+											title: 'Commander',
+											message:
+												'Contactez-nous pour cette référence !',
+										})
+									">
+									<svg
+										width="14"
+										height="14"
+										viewBox="0 0 24 24"
+										fill="none"
+										stroke="currentColor"
+										stroke-width="2"
+										stroke-linecap="round"
+										stroke-linejoin="round">
+										<circle cx="8" cy="21" r="1" />
+										<circle cx="19" cy="21" r="1" />
+										<path
+											d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
+									</svg>
+									<span data-i18n="products.cmd.btn"
+										>Commander</span
+									>
+								</button>
+							</div>
+						</div>
+					</div>
+
+					<!-- ======= FIGURINES CARDS ======= -->
+
+					<!-- 6. Socle Vitrine Figurines M -->
+					<div
+						class="pcard reveal"
+						data-cat="fig"
+						style="transition-delay: 0.04s">
+						<div class="pcard-visual pv-fire">
+							🏺<span class="pcard-ribbon pr-lim" data-i18n="products.figm.badge">Limité</span>
+						</div>
+						<div class="pcard-body">
+							<div class="pcard-cat" data-i18n="products.figm.cat">Figurines · Format M</div>
+							<div class="pcard-name" data-i18n="products.figm.name">
+								Socle Vitrine Figurines M
+							</div>
+							<div class="pcard-desc" data-i18n="products.figm.desc">
+								Amiibo, Nendoroid, figurines articulées taille
+								M. Fond noir ou miroir au choix. Assemblage en 2
+								minutes chrono, sans outil.
+							</div>
+							<div class="pcard-tags">
+								<span class="pcard-tag" data-i18n="products.figm.tag1">Fond au choix</span
+								><span class="pcard-tag" data-i18n="products.figm.tag2">Amiibo</span
+								><span class="pcard-tag" data-i18n="products.figm.tag3">Nendoroid</span>
+							</div>
+							<div class="pcard-footer">
+								<div>
+									<div class="pcard-price" data-i18n="products.figm.price">18,50€</div>
+									<div class="pcard-price-sub" data-i18n="products.figm.sub">
+										TTC · Fond inclus
+									</div>
+								</div>
+								<button
+									class="btn-add"
+									onclick="
+										toast({
+											type: 'info',
+											title: 'Commander',
+											message:
+												'Contactez-nous pour cette référence !',
+										})
+									">
+									<svg
+										width="14"
+										height="14"
+										viewBox="0 0 24 24"
+										fill="none"
+										stroke="currentColor"
+										stroke-width="2"
+										stroke-linecap="round"
+										stroke-linejoin="round">
+										<circle cx="8" cy="21" r="1" />
+										<circle cx="19" cy="21" r="1" />
+										<path
+											d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
+									</svg>
+									<span data-i18n="products.cmd.btn"
+										>Commander</span
+									>
+								</button>
+							</div>
+						</div>
+					</div>
+
+					<!-- 7. Vitrine Tall Figurine XL -->
+					<div
+						class="pcard reveal"
+						data-cat="fig"
+						style="transition-delay: 0.08s">
+						<div class="pcard-visual pv-purple">🎮</div>
+						<div class="pcard-body">
+							<div class="pcard-cat" data-i18n="products.figxl.cat">Figurines · Format XL</div>
+							<div class="pcard-name" data-i18n="products.figxl.name">
+								Vitrine Tall Figurine XL
+							</div>
+							<div class="pcard-desc" data-i18n="products.figxl.desc">
+								Hauteur maximale pour vos statuettes et grandes
+								figurines. Fond miroir intégré, découpe sur
+								mesure possible, montage sans colle.
+							</div>
+							<div class="pcard-tags">
+								<span class="pcard-tag" data-i18n="products.figxl.tag1">Format XL</span
+								><span class="pcard-tag" data-i18n="products.figxl.tag2">Fond miroir</span
+								><span class="pcard-tag" data-i18n="products.figxl.tag3">Statuettes</span>
+							</div>
+							<div class="pcard-footer">
+								<div>
+									<div class="pcard-price" data-i18n="products.figxl.price">32,00€</div>
+									<div class="pcard-price-sub" data-i18n="products.figxl.sub">
+										TTC · Sur commande
+									</div>
+								</div>
+								<button
+									class="btn-add"
+									onclick="
+										toast({
+											type: 'info',
+											title: 'Commander',
+											message:
+												'Contactez-nous pour cette référence !',
+										})
+									">
+									<svg
+										width="14"
+										height="14"
+										viewBox="0 0 24 24"
+										fill="none"
+										stroke="currentColor"
+										stroke-width="2"
+										stroke-linecap="round"
+										stroke-linejoin="round">
+										<circle cx="8" cy="21" r="1" />
+										<circle cx="19" cy="21" r="1" />
+										<path
+											d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
+									</svg>
+									<span data-i18n="products.cmd.btn"
+										>Commander</span
+									>
+								</button>
+							</div>
+						</div>
+					</div>
+
+					<!-- ======= SCELLÉS CARDS ======= -->
+
+					<!-- 8. Protection Display 36 Boosters -->
+					<div
+						class="pcard reveal"
+						data-cat="scl"
+						style="transition-delay: 0.04s">
+						<div class="pcard-visual pv-water">
+							📦<span class="pcard-ribbon pr-hot" data-i18n="products.disp.badge">Hot</span>
+						</div>
+						<div class="pcard-body">
+							<div class="pcard-cat" data-i18n="products.disp.cat">
+								Scellé · Display 36 boosters
+							</div>
+							<div class="pcard-name" data-i18n="products.disp.name">
+								Protection Display 36 Boosters
+							</div>
+							<div class="pcard-desc" data-i18n="products.disp.desc">
+								Boîte taille display 36 boosters. Résistant UV,
+								personnalisable, logo gravé possible sur
+								demande. Compatible Pokémon et Yu-Gi-Oh!
+							</div>
+							<div class="pcard-tags">
+								<span class="pcard-tag" data-i18n="products.disp.tag1">Anti-UV</span
+								><span class="pcard-tag" data-i18n="products.disp.tag2">Logo possible</span
+								><span class="pcard-tag" data-i18n="products.disp.tag3">Pokémon/YGO</span>
+							</div>
+							<div class="pcard-footer">
+								<div>
+									<div class="pcard-price" data-i18n="products.disp.price">34,90€</div>
+									<div class="pcard-price-sub" data-i18n="products.disp.sub">
+										TTC · Personnalisable
+									</div>
+								</div>
+								<button
+									class="btn-add"
+									onclick="
+										toast({
+											type: 'info',
+											title: 'Commander',
+											message:
+												'Contactez-nous pour cette référence !',
+										})
+									">
+									<svg
+										width="14"
+										height="14"
+										viewBox="0 0 24 24"
+										fill="none"
+										stroke="currentColor"
+										stroke-width="2"
+										stroke-linecap="round"
+										stroke-linejoin="round">
+										<circle cx="8" cy="21" r="1" />
+										<circle cx="19" cy="21" r="1" />
+										<path
+											d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
+									</svg>
+									<span data-i18n="products.cmd.btn"
+										>Commander</span
+									>
+								</button>
+							</div>
+						</div>
+					</div>
+
+					<!-- 9. Boîte Tin Premium -->
+					<div
+						class="pcard reveal"
+						data-cat="scl"
+						style="transition-delay: 0.08s">
+						<div class="pcard-visual pv-fire">🏅</div>
+						<div class="pcard-body">
+							<div class="pcard-cat" data-i18n="products.tin.cat">Scellé · Format Tin</div>
+							<div class="pcard-name" data-i18n="products.tin.name">Boîte Tin Premium</div>
+							<div class="pcard-desc" data-i18n="products.tin.desc">
+								Protection sur-mesure pour les Tins Pokémon et
+								Yu-Gi-Oh! Acrylique résistant, pas de rayures,
+								exposition optimale. Format universel toutes
+								Tins.
+							</div>
+							<div class="pcard-tags">
+								<span class="pcard-tag" data-i18n="products.tin.tag1">Format Tin</span
+								><span class="pcard-tag" data-i18n="products.tin.tag2">Résistant</span
+								><span class="pcard-tag" data-i18n="products.tin.tag3">Universel</span>
+							</div>
+							<div class="pcard-footer">
+								<div>
+									<div class="pcard-price" data-i18n="products.tin.price">22,00€</div>
+									<div class="pcard-price-sub" data-i18n="products.tin.sub">
+										TTC · En stock
+									</div>
+								</div>
+								<button
+									class="btn-add"
+									onclick="
+										toast({
+											type: 'info',
+											title: 'Commander',
+											message:
+												'Contactez-nous pour cette référence !',
+										})
+									">
+									<svg
+										width="14"
+										height="14"
+										viewBox="0 0 24 24"
+										fill="none"
+										stroke="currentColor"
+										stroke-width="2"
+										stroke-linecap="round"
+										stroke-linejoin="round">
+										<circle cx="8" cy="21" r="1" />
+										<circle cx="19" cy="21" r="1" />
+										<path
+											d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
+									</svg>
+									<span data-i18n="products.cmd.btn"
+										>Commander</span
+									>
+								</button>
+							</div>
+						</div>
+					</div>
+
+					<!-- ======= CUSTOM CARDS ======= -->
+
+					<!-- 10. Commande Sur Mesure Pro -->
+					<div
+						class="pcard reveal"
+						data-cat="cus"
+						style="transition-delay: 0.04s">
+						<div class="pcard-visual pv-purple">
+							✨<span class="pcard-ribbon pr-pro" data-i18n="products.custom.badge">Sur mesure</span>
+						</div>
+						<div class="pcard-body">
+							<div class="pcard-cat" data-i18n="products.custom.cat">Custom · Professionnels</div>
+							<div class="pcard-name" data-i18n="products.custom.name">
+								Commande Sur Mesure Pro
+							</div>
+							<div class="pcard-desc" data-i18n="products.custom.desc">
+								Dimensions non standard, quantités, logo gravé,
+								fond custom, pour boutiques, créateurs
+								d'événements et organisateurs TCG. Prix
+								dégressif dès 3 unités.
+							</div>
+							<div class="pcard-tags">
+								<span class="pcard-tag" data-i18n="products.custom.tag1">Logo gravé</span
+								><span class="pcard-tag" data-i18n="products.custom.tag2">Pro/boutique</span
+								><span class="pcard-tag" data-i18n="products.custom.tag3">Dégressif</span>
+							</div>
+							<div class="pcard-footer">
+								<div>
+									<div class="pcard-price" data-i18n="products.custom.price">Sur devis</div>
+									<div class="pcard-price-sub" data-i18n="products.custom.sub">
+										Dès 3 unités
+									</div>
+								</div>
+								<button
+									class="btn-add"
+									style="
+										background: var(--gold);
+										box-shadow: var(--shadow-gold);
+									"
+									onclick="
+										window.location.href = 'contact.html'
+									">
+									<svg
+										width="14"
+										height="14"
+										viewBox="0 0 24 24"
+										fill="none"
+										stroke="currentColor"
+										stroke-width="2"
+										stroke-linecap="round"
+										stroke-linejoin="round">
+										<circle cx="8" cy="21" r="1" />
+										<circle cx="19" cy="21" r="1" />
+										<path
+											d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
+									</svg>
+									<span data-i18n="products.quote.btn"
+										>Devis gratuit</span
+									>
+								</button>
+							</div>
+						</div>
+					</div>
+
+					<!-- 11. Pack Boutique × 10 -->
+					<div
+						class="pcard reveal"
+						data-cat="cus"
+						style="transition-delay: 0.08s">
+						<div class="pcard-visual pv-blue">
+							🏪<span class="pcard-ribbon pr-pro" data-i18n="products.pack.badge">Pro</span>
+						</div>
+						<div class="pcard-body">
+							<div class="pcard-cat" data-i18n="products.pack.cat">Custom · Pack boutique</div>
+							<div class="pcard-name" data-i18n="products.pack.name">Pack Boutique × 10</div>
+							<div class="pcard-desc" data-i18n="products.pack.desc">
+								Pack de 10 protections identiques pour boutiques
+								TCG. Personnalisation complète, tarif
+								préférentiel, livraison express négociable.
+							</div>
+							<div class="pcard-tags">
+								<span class="pcard-tag" data-i18n="products.pack.tag1">Dégressif</span
+								><span class="pcard-tag" data-i18n="products.pack.tag2">Personnalisé</span
+								><span class="pcard-tag" data-i18n="products.pack.tag3"
+									>Livraison express</span
+								>
+							</div>
+							<div class="pcard-footer">
+								<div>
+									<div class="pcard-price" data-i18n="products.pack.price">Sur devis</div>
+									<div class="pcard-price-sub" data-i18n="products.pack.sub">Pack × 10</div>
+								</div>
+								<button
+									class="btn-add"
+									style="
+										background: var(--gold);
+										box-shadow: var(--shadow-gold);
+									"
+									onclick="
+										window.location.href = 'contact.html'
+									">
+									<svg
+										width="14"
+										height="14"
+										viewBox="0 0 24 24"
+										fill="none"
+										stroke="currentColor"
+										stroke-width="2"
+										stroke-linecap="round"
+										stroke-linejoin="round">
+										<circle cx="8" cy="21" r="1" />
+										<circle cx="19" cy="21" r="1" />
+										<path
+											d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
+									</svg>
+									<span data-i18n="products.quote.btn"
+										>Devis gratuit</span
+									>
+								</button>
+							</div>
+						</div>
+					</div>
+
+					<!-- 12. Gravure Laser Custom -->
+					<div
+						class="pcard reveal"
+						data-cat="cus"
+						style="transition-delay: 0.12s">
+						<div class="pcard-visual pv-gold">
+							💎<span class="pcard-ribbon pr-lim" data-i18n="products.laser.badge">Exclusif</span>
+						</div>
+						<div class="pcard-body">
+							<div class="pcard-cat" data-i18n="products.laser.cat">Custom · Laser</div>
+							<div class="pcard-name" data-i18n="products.laser.name">Gravure Laser Custom</div>
+							<div class="pcard-desc" data-i18n="products.laser.desc">
+								Votre motif, logo ou texte gravé au laser sur
+								votre protection acrylique. Précision au
+								demi-millimètre, finition premium. Rendu unique
+								et professionnel.
+							</div>
+							<div class="pcard-tags">
+								<span class="pcard-tag" data-i18n="products.laser.tag1">Laser</span
+								><span class="pcard-tag" data-i18n="products.laser.tag2">Motif sur mesure</span
+								><span class="pcard-tag" data-i18n="products.laser.tag3">Premium</span>
+							</div>
+							<div class="pcard-footer">
+								<div>
+									<div class="pcard-price" data-i18n="products.laser.price">Sur devis</div>
+									<div class="pcard-price-sub" data-i18n="products.laser.sub">
+										Motif libre
+									</div>
+								</div>
+								<button
+									class="btn-add"
+									style="
+										background: var(--gold);
+										box-shadow: var(--shadow-gold);
+									"
+									onclick="
+										window.location.href = 'contact.html'
+									">
+									<svg
+										width="14"
+										height="14"
+										viewBox="0 0 24 24"
+										fill="none"
+										stroke="currentColor"
+										stroke-width="2"
+										stroke-linecap="round"
+										stroke-linejoin="round">
+										<circle cx="8" cy="21" r="1" />
+										<circle cx="19" cy="21" r="1" />
+										<path
+											d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
+									</svg>
+									<span data-i18n="products.quote.btn"
+										>Devis gratuit</span
+									>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /prodGrid -->
+
+				<!-- Bottom CTA Strip -->
+				<div class="ppage-cta-strip reveal">
+					<div
+						class="ppage-cta-eyebrow"
+						data-i18n="products.cta.eyebrow">
+						Vous ne trouvez pas ce qu'il vous faut ?
+					</div>
+					<h2 class="ppage-cta-title" data-i18n="products.cta.title">
+						On fait du sur mesure pour chaque besoin
+					</h2>
+					<p class="ppage-cta-desc" data-i18n="products.cta.desc">
+						Notre gamme évolue en continu. Si votre format n'est pas
+						encore au catalogue, contactez-nous. Chaque demande sur
+						mesure est traitée avec le même soin que nos références
+						standard.
+					</p>
+					<div class="ppage-cta-actions">
+						<a class="btn-primary-gold" href="contact.html">
+							<svg
+								width="16"
+								height="16"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2.5">
+								<path
+									d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+								<polyline points="22,6 12,13 2,6" />
+							</svg>
+							<span data-i18n="products.cta.contact"
+								>Nous contacter</span
+							>
+						</a>
+						<a
+							class="btn-ghost-dark"
+							href="index.html"
+							data-i18n="products.cta.back">
+							← Retour à l'accueil
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Footer -->
+		<footer>
+			<div class="footer-grid">
+				<div>
+					<a class="footer-logo" href="index.html">
+						<div class="footer-logo-icon">🛡️</div>
+						<span class="footer-logo-name">Items Protect</span>
+					</a>
+					<p class="footer-desc" data-i18n="footer.desc">
+						Protections acryliques premium pour collectionneurs
+						passionnés. TCG, figurines, scellés et objets rares,
+						depuis 2022.
+					</p>
+					<div class="footer-socials">
+						<a
+							class="footer-social-chip"
+							href="mailto:contact@itemsprotect.fr" data-i18n="footer.contact.email">
+							📧 Email
+						</a>
+						<a
+							class="footer-social-chip"
+							href="#"
+							onclick="toast({ type: 'info', title: 'Instagram', message: '@itemsprotect' }); return false;" data-i18n="footer.contact.instagram">
+							📸 Instagram
+						</a>
+						<a
+							class="footer-social-chip"
+							href="#"
+							onclick="toast({ type: 'info', title: 'Discord', message: 'Discord Items Protect' }); return false;" data-i18n="footer.contact.discord">
+							💬 Discord
+						</a>
+					</div>
+				</div>
+				<div>
+					<p class="footer-col-title" data-i18n="footer.nav.title">
+						Navigation
+					</p>
+					<ul class="footer-links">
+						<li>
+							<a href="index.html#story" data-i18n="footer.nav.histoire">Notre histoire</a>
+						</li>
+						<li>
+							<a href="products.html" data-i18n="footer.nav.catalogue">Catalogue</a>
+						</li>
+						<li>
+							<a href="index.html#universes" data-i18n="footer.nav.univers">Univers</a>
+						</li>
+						<li>
+							<a href="index.html#testi" data-i18n="footer.nav.avis">Avis clients</a>
+						</li>
+					</ul>
+				</div>
+				<div>
+					<p
+						class="footer-col-title"
+						data-i18n="footer.products.title">
+						Produits
+					</p>
+					<ul class="footer-links">
+						<li>
+							<a href="products.html" data-i18n="footer.products.tcg">Boîtes TCG</a>
+						</li>
+						<li>
+							<a href="products.html" data-i18n="footer.products.fig">Vitrines figurines</a>
+						</li>
+						<li>
+							<a href="products.html" data-i18n="footer.products.displays">Protection displays</a>
+						</li>
+						<li>
+							<a href="contact.html" data-i18n="footer.products.custom">Sur mesure &amp; pro</a>
+						</li>
+					</ul>
+				</div>
+				<div>
+					<p
+						class="footer-col-title"
+						data-i18n="footer.contact.title">
+						Contact
+					</p>
+					<ul class="footer-links">
+						<li>
+							<a href="mailto:contact@itemsprotect.fr"
+								 data-i18n="footer.contact.email">📧 Email</a
+							>
+						</li>
+						<li>
+							<a
+								href="#"
+								onclick="
+									toast({
+										type: 'info',
+										title: 'Discord',
+										message:
+											'Rejoignez le serveur Discord Items Protect !',
+									});
+									return false;
+								"
+								 data-i18n="footer.contact.discord">💬 Discord</a
+							>
+						</li>
+						<li>
+							<a
+								href="#"
+								onclick="
+									toast({
+										type: 'info',
+										title: 'Instagram',
+										message: '@itemsprotect sur Instagram',
+									});
+									return false;
+								"
+								 data-i18n="footer.contact.instagram">📸 Instagram</a
+							>
+						</li>
+						<li>
+							<a
+								href="#"
+								onclick="
+									toast({
+										type: 'info',
+										title: 'TikTok',
+										message: '@itemsprotect sur TikTok',
+									});
+									return false;
+								"
+								 data-i18n="footer.contact.tiktok">🎵 TikTok</a
+							>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="footer-bottom">
+				<span class="footer-copy" data-i18n="footer.copy"
+					>© 2025 Items Protect · Tous droits réservés</span
+				>
+				<div class="footer-legal">
+					<a
+						href="mentions-legales.html"
+						data-i18n="footer.legal.mentions"
+						>Mentions légales</a
+					>
+					<a href="cgv.html" data-i18n="footer.legal.cgv">CGV</a>
+					<a
+						href="confidentialite.html"
+						data-i18n="footer.legal.confidentialite"
+						>Confidentialité</a
+					>
+				</div>
+			</div>
+		</footer>
+
+		<!-- Scripts: loaded in dependency order -->
+		<script src="scripts/core/i18n.js"></script>
+		<script src="scripts/components/toast.js"></script>
+		<script src="scripts/core/loader.js"></script>
+		<script src="scripts/components/navigation.js"></script>
+		<script src="scripts/utils/scroll.js"></script>
+		<script src="scripts/utils/products.js"></script>
+		<script src="scripts/utils/particles.js"></script>
+		<script src="scripts/components/chatbot.js"></script>
+	</body>
+</html>
